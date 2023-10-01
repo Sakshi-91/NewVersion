@@ -8,9 +8,9 @@ pipeline {
 
 		   
         withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']) {  
-          sh '''
+          
             bat "sh -x ./script/codeconvertor.sh WebApplication2/WebApplication2/Program.cs"
-          '''
+      
      
       }
 		  
