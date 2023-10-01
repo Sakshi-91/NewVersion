@@ -51,7 +51,7 @@ pipeline {
 
         stage("Sync Repository") {
             steps {
-              //      echo "Sync working directory with remote GitHub Repo"
+                 echo "Sync working directory with remote GitHub Repo"
                 //    bat "git pull origin main"
 		  //  bat "git status"	 
             }
