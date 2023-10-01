@@ -28,9 +28,9 @@ pipeline {
         stage("Commit Generated Files") {
             steps {
 		echo "Staging the generated files and commiting in git"
-                bat "git stash"  
-		bat "git checkout main"
-                bat "git stash pop"                  
+              //  bat "git stash"  
+		// bat "git checkout main"
+              //  bat "git stash pop"                  
                 bat "git add ./demo1/src/main/java/com/example/demo/Demo1Application.java"
                 bat "git commit -m 'AIGeneratedFiles' || echo 'Commit failed. There is probably nothing to commit.'"
             }
