@@ -31,10 +31,10 @@ pipeline {
               //  bat "git stash"  
 		// bat "git checkout main"
               //  bat "git stash pop"     
-		   bat "git config --global user.email 'agrasaks.in.ibm.com'"
-		    bat "git config --global user.name 'Sakshi-Git1'"
-                bat "git add ./demo1/src/main/java/com/example/demo/main.java"
-                bat "git commit -m 'AIGeneratedFiles' || echo 'Commit failed. There is probably nothing to commit.'"
+		//   bat "git config --global user.email 'agrasaks.in.ibm.com'"
+		  //  bat "git config --global user.name 'Sakshi-Git1'"
+                //bat "git add ./demo1/src/main/java/com/example/demo/main.java"
+                //bat "git commit -m 'AIGeneratedFiles' || echo 'Commit failed. There is probably nothing to commit.'"
             }
         }
 
@@ -44,16 +44,16 @@ pipeline {
 		     echo "Pushing to remote GitHub Repo"
 	          //   bat "git pull origin main"		
                   //   bat "git push -u origin main"
-		       bat "git push https://github.com/Sakshi-Git1/NewVersion.git HEAD:main"
+		  //     bat "git push https://github.com/Sakshi-Git1/NewVersion.git HEAD:main"
                 }
             }
         }
 
         stage("Sync Repository") {
             steps {
-                    echo "Sync working directory with remote GitHub Repo"
-                    bat "git pull origin main"
-		    bat "git status"	 
+              //      echo "Sync working directory with remote GitHub Repo"
+                //    bat "git pull origin main"
+		  //  bat "git status"	 
             }
         }
         stage('Build Docker image') {
