@@ -7,9 +7,9 @@ pipeline {
         	// bat "cd script"
 
 		   
-        withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']) {  
+    //    withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']) {  
           
-            bat "sh -x ./script/codeconvertor.sh WebApplication2/WebApplication2/Program.cs"
+      //      bat "sh -x ./script/codeconvertor.sh WebApplication2/WebApplication2/Program.cs"
       
      
       }
