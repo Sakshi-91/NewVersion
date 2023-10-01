@@ -31,8 +31,8 @@ pipeline {
               //  bat "git stash"  
 		// bat "git checkout main"
               //  bat "git stash pop"     
-		   bat "git config --global user.email "agrasaks.in.ibm.com"
-  		bat "git config --global user.name "Sakshi-Git1"
+		   bat "git config --global user.email 'agrasaks.in.ibm.com'"
+		    bat "git config --global user.name 'Sakshi-Git1'"
                 bat "git add ./demo1/src/main/java/com/example/demo/Demo1Application.java"
                 bat "git commit -m 'AIGeneratedFiles' || echo 'Commit failed. There is probably nothing to commit.'"
             }
