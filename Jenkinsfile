@@ -5,6 +5,14 @@ pipeline {
             steps {
                 echo "Generating Java Files from ChatGPT API calls"
         	// bat "cd script"
+
+		    steps {
+        withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']) {  
+          sh '''
+            //code block
+          '''
+        }
+      }
 		    bat "sh -x ./script/codeconvertor.sh WebApplication2/WebApplication2/Program.cs"
 	//	sh "git stash"  
 	//	sh "git checkout main"
