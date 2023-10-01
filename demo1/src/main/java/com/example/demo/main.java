@@ -11,7 +11,7 @@ public class main {
         Javalin app = Javalin.create().start(8080);
         
         app.get("/", ctx -> {
-        ctx.result("Hello World from Java!");
+        ctx.result("Hello World from Java!") ;
         });
         }
 }
