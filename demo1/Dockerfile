@@ -10,7 +10,7 @@ RUN ./mvnw clean install
 #FROM eclipse-temurin:8-jre-jammy
 WORKDIR /opt/app
 EXPOSE 8088 8085
-# COPY ./target/*.jar /opt/app/*.jar
+COPY /opt/app/target/*.jar /opt/app/*.jar
 # Start SOAP UI MockService and your application
 # COPY ./soapui/*.tar.gz /opt
 # RUN cd /opt && tar -xvf /opt/*.tar.gz && rm /opt/*.tar.gz
