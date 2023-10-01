@@ -4,8 +4,8 @@ pipeline {
         stage("Generate Files") {
             steps {
                 echo "Generating Java Files from ChatGPT API calls"
-        	bat "cd script"
-		    bat "sh -x ./codeconvertor.sh WebApplication2/WebApplication2/Program.cs"
+        	// bat "cd script"
+		    bat "sh -x ./script/codeconvertor.sh WebApplication2/WebApplication2/Program.cs"
 	//	sh "git stash"  
 	//	sh "git checkout main"
           //      sh "git stash pop" 
