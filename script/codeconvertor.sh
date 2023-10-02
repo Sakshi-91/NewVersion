@@ -51,7 +51,7 @@ do
 		code=`convert_code "$file"|cut -c 3-`
 		len=$((${#code}-1))
 		#convert_code "$file"|sed -e 's/\\n/\n/g' -e 's/\\\"/\"/g' #> $java_file
-		echo ${code:0:len}|sed -e 's/\\n/\n/g' -e 's/\\\"/\"/g' > './demo1/src/main/java/com/example/demo/Demo1Application.java'
+		echo ${code:0:len}|sed -e 's/\\n/\n/g' -e 's/\\\"/\"/g' > './AccountDetails/src/main/java/com/example/accountdetails/AccountResponse.java'
 		echo ${code:0:len}|sed -e 's/\\n/\n/g' -e 's/\\\"/\"/g' 
 		[[ $zip_flag ]] && rm $i # if *.cs files are extracted from zip, so after conversion we can delete them because they are already present in zip 
 	done
