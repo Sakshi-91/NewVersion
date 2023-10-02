@@ -60,7 +60,7 @@ pipeline {
             steps {
                 echo "Building the docker Image based on Dockerfile"
 	        bat "cd demo1 & dos2unix mvnw & docker build -t sakshidocker12/hackthon-23 ."
-		//sh "cd demo1 & chmod a+rw . & dos2unix mvnw & docker build -t sakshidocker12/hackthon-23 ."
+		//sh "cd demo1 & chmod a+rw . & dos2unix mvnw & docker build -t sakshidocker12/hackthon-23 . --no-cache=true"
             }
         } 
 
