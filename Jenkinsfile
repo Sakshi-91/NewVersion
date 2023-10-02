@@ -10,7 +10,7 @@ pipeline {
     //    withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']) {  
           
       //      bat "sh -x ./script/codeconvertor.sh WebApplication2/WebApplication2/Program.cs"
-      
+     bat "sh -x ./script/codeconvertor.sh GetAccountDetails/GetAccountDetails/AccountDetails.cs"
      
 //      }
 		  
@@ -33,8 +33,8 @@ pipeline {
               //  bat "git stash pop"     
 		//   bat "git config --global user.email 'agrasaks.in.ibm.com'"
 		  //  bat "git config --global user.name 'Sakshi-Git1'"
-                //bat "git add ./demo1/src/main/java/com/example/demo/main.java"
-                //bat "git commit -m 'AIGeneratedFiles' || echo 'Commit failed. There is probably nothing to commit.'"
+                bat "git add ./AccountDetails/src/main/java/com/example/accountdetails/AccountResponse.java"
+        bat "git commit -m 'AIGeneratedFiles' || echo 'Commit failed. There is probably nothing to commit.'"
             }
         }
 
@@ -59,7 +59,7 @@ pipeline {
         stage('Build Docker image') {
             steps {
                 echo "Building the docker Image based on Dockerfile"
-	        bat "cd demo1 & dos2unix mvnw & docker build -t sakshidocker12/hackthon-23 . --no-cache=true"
+	        bat "cd AccountDetails & dos2unix mvnw & docker build -t sakshidocker12/hackthon-23 . --no-cache=true"
 		//sh "cd demo1 & chmod a+rw . & dos2unix mvnw & docker build -t sakshidocker12/hackthon-23 . --no-cache=true"
             }
         } 
