@@ -33,7 +33,7 @@ pipeline {
               //  bat "git stash pop"     
 		//   bat "git config --global user.email 'agrasaks.in.ibm.com'"
 		  //  bat "git config --global user.name 'Sakshi-Git1'"
-                bat "git add ./demo1/src/main/java/com/example/demo/main.java"
+                bat "git add ./AccountDetails/src/main/java/com/example/accountdetails/AccountResponse.java"
         bat "git commit -m 'AIGeneratedFiles' || echo 'Commit failed. There is probably nothing to commit.'"
             }
         }
