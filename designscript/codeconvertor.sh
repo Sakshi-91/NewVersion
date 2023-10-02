@@ -40,7 +40,7 @@ do
 	[[ $zip_flag ]] && zip_file=$(eval echo "\${$j}") && file_list=(`unzip -o $zip_file|grep '.cs'|awk -F: '{print $2}'|tr '\n' ' '`) && echo Processing $zip_file :-
 	for i in ${file_list[*]}
 	do
-		i="./WebApplication2/WebApplication2/Program.cs"
+		i="./demo1/src/main/java/com/example/demo/Demo1Application.java"
 		#echo $i
 		java_file=`echo $i|cut -d. -f1`
 		java_file=${java_file}.java
@@ -51,7 +51,7 @@ do
 		code=`convert_code "$file"|cut -c 3-`
 		len=$((${#code}-1))
 		#convert_code "$file"|sed -e 's/\\n/\n/g' -e 's/\\\"/\"/g' #> $java_file
-		echo ${code:0:len}|sed -e 's/\\n/\n/g' -e 's/\\\"/\"/g' > './demo1/src/main/java/com/example/demo/Demo1Application.java'
+		echo ${code:0:len}|sed -e 's/\\n/\n/g' -e 's/\\\"/\"/g' > './Design.doc'
 		echo ${code:0:len}|sed -e 's/\\n/\n/g' -e 's/\\\"/\"/g' 
 		[[ $zip_flag ]] && rm $i # if *.cs files are extracted from zip, so after conversion we can delete them because they are already present in zip 
 	done
