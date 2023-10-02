@@ -1,5 +1,5 @@
 echo "Starting to deploy docker image.."
-DOCKER_IMAGE=sakshidocker12/hackathon-23:latest
+DOCKER_IMAGE=sakshidocker12/hackthon-23:latest
 docker pull $DOCKER_IMAGE
 docker ps -q --filter ancestor=$DOCKER_IMAGE | xargs -r docker stop
 docker container stop hackthon-23
