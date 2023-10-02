@@ -15,5 +15,5 @@ COPY /opt/app/target/*.jar /opt/app/*.jar
 # COPY ./soapui/*.tar.gz /opt
 # RUN cd /opt && tar -xvf /opt/*.tar.gz && rm /opt/*.tar.gz
 COPY ./soapui/AccountDetails.xml /opt/app/AccountDetails.xml
-CMD /opt/SoapUI-5.2.0/bin/mockservicerunner.sh -p 8088 /opt/app/AccountDetails.xml & java -jar /opt/app/target/*.jar
+CMD /opt/SoapUI-5.2.0/bin/mockservicerunner.sh -p 8088 /opt/app/AccountDetails.xml & java -jar /opt/app/*.jar
 # ENTRYPOINT ["java", "-jar", "/opt/app/*.jar" ]
