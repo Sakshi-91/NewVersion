@@ -10,7 +10,7 @@ pipeline {
     //    withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']) {  
           
       //      bat "sh -x ./script/codeconvertor.sh WebApplication2/WebApplication2/Program.cs"
-      
+     bat "sh -x ./script/codeconvertor.sh GetAccountDetails/GetAccountDetails/AccountDetails.cs"
      
 //      }
 		  
@@ -33,8 +33,8 @@ pipeline {
               //  bat "git stash pop"     
 		//   bat "git config --global user.email 'agrasaks.in.ibm.com'"
 		  //  bat "git config --global user.name 'Sakshi-Git1'"
-                //bat "git add ./demo1/src/main/java/com/example/demo/main.java"
-                //bat "git commit -m 'AIGeneratedFiles' || echo 'Commit failed. There is probably nothing to commit.'"
+                bat "git add ./demo1/src/main/java/com/example/demo/main.java"
+        bat "git commit -m 'AIGeneratedFiles' || echo 'Commit failed. There is probably nothing to commit.'"
             }
         }
 
