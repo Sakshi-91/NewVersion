@@ -40,7 +40,7 @@ do
 	[[ $zip_flag ]] && zip_file=$(eval echo "\${$j}") && file_list=(`unzip -o $zip_file|grep '.cs'|awk -F: '{print $2}'|tr '\n' ' '`) && echo Processing $zip_file :-
 	for i in ${file_list[*]}
 	do
-		i="./AccountController.java"
+		i="./AccountDetailsApplication.java"
 		#echo $i
 		java_file=`echo $i|cut -d. -f1`
 		java_file=${java_file}.java
