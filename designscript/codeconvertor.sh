@@ -4,7 +4,7 @@ convert_code()
 {
 #echo $1
 api_key=$(<"./api_key.txt")
-prompt_file_path="./prompt_for_design.txt"
+prompt_file_path="./prompt.txt"
 prompt_contents=$(<"$prompt_file_path")
 
 curl --silent $url \
