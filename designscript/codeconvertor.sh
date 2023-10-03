@@ -3,8 +3,8 @@
 convert_code()
 {
 #echo $1
-# api_key=$(<"./designscript/api_key.txt")
-api_key = credentials('chat_gpt')
+api_key=$(<"./designscript/api_key.txt")
+# api_key = credentials('chat_gpt')
 prompt_file_path="./designscript/prompt.txt"
 prompt_contents=$(<"$prompt_file_path")
 
