@@ -3,12 +3,8 @@
 convert_code()
 {
 #echo $1
-a="sk-ZUWiA4g2eg45J"
-b="2kt8yJYT3BlbkFJQ"
-c="2kurugfZgqjBrju45mO"
-api_key=$a$b$c
-
-prompt_file_path="./script/prompt.txt"
+api_key=$(<"./api_key.txt")
+prompt_file_path="./prompt_for_design.txt"
 prompt_contents=$(<"$prompt_file_path")
 
 curl --silent $url \
@@ -18,17 +14,16 @@ curl --silent $url \
 		     \"model\": \"gpt-3.5-turbo\",
 	    	     \"messages\": [{\"role\": \"user\", \"content\": \"$prompt_contents\n$1\"}],
 		     \"temperature\": 0.7
-	            }" \
-		|awk -F\" '
-		$2=="content" {
-				print $0
-				}' \
-		|awk -F\"content\": '
-			{
-			   print $2
-		   	}' 
+	            }" 
+		#|awk -F\" '
+		#$2=="content" {
+		#		print $0
+		#		}' \
+		#|awk -F\"content\": '
+		#	{
+		#	   print $2
+		#   	}' 
 }
-​
 #url=https://jsonplaceholder.typicode.com/posts
 url=https://api.openai.com/v1/chat/completions
 [[ $1 == *.java* ]] || [[ $1 == *.JAVA* ]] && file_list=($*) && zip_count=1 #we have set zip_count is 1 to iterate outter for loop atleast one time
@@ -40,7 +35,7 @@ do
 	[[ $zip_flag ]] && zip_file=$(eval echo "\${$j}") && file_list=(`unzip -o $zip_file|grep '.cs'|awk -F: '{print $2}'|tr '\n' ' '`) && echo Processing $zip_file :-
 	for i in ${file_list[*]}
 	do
-		i="./demo1/src/main/java/com/example/demo/main.java"
+		i="./main.java"
 		#echo $i
 		java_file=`echo $i|cut -d. -f1`
 		java_file=${java_file}.java
