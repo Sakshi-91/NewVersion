@@ -3,8 +3,8 @@
 convert_code()
 {
 #echo $1
-api_key=$(<"./api_key.txt")
-prompt_file_path="./prompt.txt"
+api_key=$(<"./designscript/api_key.txt")
+prompt_file_path="./designscript/prompt.txt"
 prompt_contents=$(<"$prompt_file_path")
 
 curl --silent $url \
