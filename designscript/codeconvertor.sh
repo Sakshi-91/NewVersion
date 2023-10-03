@@ -31,7 +31,7 @@ curl --silent $url \
 ​
 #url=https://jsonplaceholder.typicode.com/posts
 url=https://api.openai.com/v1/chat/completions
-[[ $1 == *.cs* ]] || [[ $1 == *.CS* ]] && file_list=($*) && zip_count=1 #we have set zip_count is 1 to iterate outter for loop atleast one time
+[[ $1 == *.java* ]] || [[ $1 == *.JAVA* ]] && file_list=($*) && zip_count=1 #we have set zip_count is 1 to iterate outter for loop atleast one time
 file_list=2
 zip_count=1
 [[ $1 == *.zip* ]] || [[ $1 == *.ZIP* ]] && zip_flag=1 && zip_count=$# 
