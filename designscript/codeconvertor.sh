@@ -45,7 +45,7 @@ do
 		java_file=`echo $i|cut -d. -f1`
 		java_file=${java_file}.java
 		java_list+=($java_file)
-		echo converting $i 
+		#echo converting $i 
 		file=`cat $i|tr '\r\n' ' '|sed 's/\"/\\\"/g'`
 		#echo $file
 		code=`convert_code "$file"|cut -c 3-`
