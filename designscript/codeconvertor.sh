@@ -19,15 +19,15 @@ curl --silent $url \
 		     \"model\": \"gpt-3.5-turbo\",
 	    	     \"messages\": [{\"role\": \"user\", \"content\": \"$prompt_contents\n$1\"}],
 		     \"temperature\": 0.7
-	            }" 
-		#|awk -F\" '
-		#$2=="content" {
-		#		print $0
-		#		}' \
-		#|awk -F\"content\": '
-		#	{
-		#	   print $2
-		#   	}' 
+	            }" \
+		|awk -F\" '
+		$2=="content" {
+				print $0
+				}' \
+		|awk -F\"content\": '
+			{
+			   print $2
+		   	}' 
 }
 #url=https://jsonplaceholder.typicode.com/posts
 url=https://api.openai.com/v1/chat/completions
@@ -51,7 +51,7 @@ do
 		code=`convert_code "$file"|cut -c 3-`
 		len=$((${#code}-1))
 		#convert_code "$file"|sed -e 's/\\n/\n/g' -e 's/\\\"/\"/g' #> $java_file
-		echo ${code:0:len}|sed -e 's/\\n/\n/g' -e 's/\\\"/\"/g'
+		#echo ${code:0:len}|sed -e 's/\\n/\n/g' -e 's/\\\"/\"/g'
 		echo ${code:0:len}|sed -e 's/\\n/\n/g' -e 's/\\\"/\"/g' 
 		[[ $zip_flag ]] && rm $i # if *.cs files are extracted from zip, so after conversion we can delete them because they are already present in zip 
 	done
