@@ -1,6 +1,6 @@
 package com.example.accountdetails;
 
-
+ 
 public class AccountResponse {
         private String accountNumber;
         private String accountType;
