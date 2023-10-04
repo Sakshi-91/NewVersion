@@ -1,7 +1,0 @@
-C:\Users\004H0S744\source\repos\GetAccountDetails\GetAccountDetails\obj\Debug\GetAccountDetails.csproj.AssemblyReference.cache
-C:\Users\004H0S744\source\repos\GetAccountDetails\GetAccountDetails\obj\Debug\GetAccountDetails.csproj.CoreCompileInputs.cache
-C:\Users\004H0S744\source\repos\GetAccountDetails\GetAccountDetails\bin\Account.dll.config
-C:\Users\004H0S744\source\repos\GetAccountDetails\GetAccountDetails\bin\Account.dll
-C:\Users\004H0S744\source\repos\GetAccountDetails\GetAccountDetails\bin\Account.pdb
-C:\Users\004H0S744\source\repos\GetAccountDetails\GetAccountDetails\obj\Debug\Account.dll
-C:\Users\004H0S744\source\repos\GetAccountDetails\GetAccountDetails\obj\Debug\Account.pdb
