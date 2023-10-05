@@ -10,8 +10,8 @@ pipeline {
     //    withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']) {  
           
       //      bat "sh -x ./script/codeconvertor.sh WebApplication2/WebApplication2/Program.cs"
-  //   bat "sh -x ./script/codeconvertor.sh GetAccountDetails/GetAccountDetails/AccountDetails.cs"
-     
+ //   bat "sh -x ./script/codeconvertor.sh GetAccountDetails/GetAccountDetails/AccountDetails.cs"
+     bat "sh -x ./script/codeconvertor.sh"
 //      }
 		  
 	//	sh "git stash"  
@@ -33,8 +33,8 @@ pipeline {
               //  bat "git stash pop"     
 		//   bat "git config --global user.email 'agrasaks.in.ibm.com'"
 		  //  bat "git config --global user.name 'Sakshi-Git1'"
-        //        bat "git add ./AccountDetails/src/main/java/com/example/accountdetails/AccountResponse.java"
-        //bat "git commit -m 'AIGeneratedFiles' || echo 'Commit failed. There is probably nothing to commit.'"
+                bat "git add ./AccountDetails/src/main/java/com/example/accountdetails/AccountResponse.java"
+        bat "git commit -m 'AIGeneratedFiles' || echo 'Commit failed. There is probably nothing to commit.'"
             }
         }
 
@@ -44,7 +44,7 @@ pipeline {
 		     echo "Pushing to remote GitHub Repo"
 	          //   bat "git pull origin main"		
                   //   bat "git push -u origin main"
-		  //     bat "git push https://github.com/Sakshi-Git1/NewVersion.git HEAD:main"
+		       bat "git push https://github.com/Sakshi-Git1/NewVersion.git HEAD:main"
                 }
             }
         }
@@ -52,8 +52,8 @@ pipeline {
         stage("Sync Repository") {
             steps {
                  echo "Sync working directory with remote GitHub Repo"
-                //    bat "git pull origin main"
-		  //  bat "git status"	 
+                    bat "git pull origin main"
+		    bat "git status"	 
             }
         }
         stage('Build Docker image') {
