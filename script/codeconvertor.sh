@@ -27,18 +27,16 @@ curl --silent $url \
 url=https://api.openai.com/v1/chat/completions
 repo_url=$1
 repo_name=`echo $repo_url|awk -F'/' '{printf "%s",$NF}'`
-repo_name=GetAccountDetails
+repo_name="../GetAccountDetails"
 echo $repo_name
 cd $repo_name
 file_list=(`find . -name *.cs|grep -vE '/obj/Debug/|/obj/Release/|/Properties/|/obj/Debug/'`)
-cd ..
+file_content=`cat ${file_list[*]}|grep -v '//'|tr '\r\n' ' '|sed 's/\"/\\\"/g'`
+cd ../script/
 echo ${file_list[*]}
 prompt=`cat ./prompt.txt|sed ':a;N;$!ba;s/\n/\\\n/g'|sed 's/\"/\\\"/g'`
 echo $prompt
-cd $repo_name
-file_content=`cat ${file_list[*]}|grep -v '//'|tr '\r\n' ' '|sed 's/\"/\\\"/g'`
-cd ..
-​
+
 mkdir -p code_conversion
 cd code_conversion
 convert_code "$prompt" "$file_content" > input.json
@@ -75,7 +73,3 @@ then
 fi
 echo "$pom" > pom.xml
 bash git.txt
-​
-		#echo ${code:0:len}|sed -e 's/\\n/\n/g' -e 's/\\\"/\"/g' 
-		#[[ $zip_flag ]] && rm $i # if *.cs files are extracted from zip, so after conversion we can delete them because they are already present in zip 
-	#[[ $zip_flag ]] && zip -q ${zip_file%.zip}_java.zip ${java_list[*]} && rm ${java_list[*]} # after compressing java files into zip, we can delete them because they are available in zip file.
