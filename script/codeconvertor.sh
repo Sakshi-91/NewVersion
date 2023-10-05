@@ -33,7 +33,7 @@ cd $repo_name
 file_list=(`find . -name *.cs|grep -vE '/obj/Debug/|/obj/Release/|/Properties/|/obj/Debug/'`)
 cd ..
 echo ${file_list[*]}
-prompt=`cat ./prompt/prompt.txt|sed ':a;N;$!ba;s/\n/\\\n/g'|sed 's/\"/\\\"/g'`
+prompt=`cat ./prompt.txt|sed ':a;N;$!ba;s/\n/\\\n/g'|sed 's/\"/\\\"/g'`
 echo $prompt
 cd $repo_name
 file_content=`cat ${file_list[*]}|grep -v '//'|tr '\r\n' ' '|sed 's/\"/\\\"/g'`
