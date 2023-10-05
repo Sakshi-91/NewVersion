@@ -3,11 +3,10 @@
 convert_code()
 {
 #echo $1
-a="sk-ZUWiA4g2eg45J"
-b="2kt8yJYT3BlbkFJQ"
-c="2kurugfZgqjBrju45mO"
+a="sk-H8D3LLvmzJW5MLN35"
+b="yppT3BlbkFJgZjtZ38o0"
+c="R2DnDt3FENp"
 api_key=$a$b$c
-api_key=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
 curl --silent $url \
 		-H "Authorization: Bearer $api_key" \
 		-H "Content-Type: application/json" \
@@ -42,14 +41,17 @@ cd ..
 ​
 mkdir -p code_conversion
 cd code_conversion
-#convert_code "$prompt" "$file_content" > input.json
+convert_code "$prompt" "$file_content" > input.json
+w_count=$(cat input.json|wc -c)
+java_code=$(cat input.json |awk -v RS="\"content\": \"" 'NR>1 {print $0}'|awk -v RS="\"finish_reason\": \"stop\"" 'NR==1 {print $0}'|awk 'NR==1 {print $0}'|cut -c -$((w_count-3)))
 #java_code=$(jq -r '.choices[].message.content' input.json)
-java_code=$(convert_code "$prompt" "$file_content"|jq -r '.choices[].message.content')
-echo "$java_code" > input.json
+#java_code=$(convert_code "$prompt" "$file_content"|jq -r '.choices[].message.content')
+#echo "$java_code" > input.json
 # Remove escape characters for double quotes
 java_code=$(echo "$java_code" | sed 's/\\"/"/g')
+java_code="${java_code//'\n'/$'\n'}"
+#echo "$(java_code)"|tr '\\n' '\n' > input.json
 # Create directory for Java files
-mkdir -p java_files
 file_names=$(grep -F .java: <<< "$java_code"|tr : ' '|cut -d. -f1)
 echo ${file_names[*]}
 # Use awk to split Java code into individual files
