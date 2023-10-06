@@ -27,17 +27,16 @@ curl --silent $url \
 url=https://api.openai.com/v1/chat/completions
 repo_url=$1
 repo_name=`echo $repo_url|awk -F'/' '{printf "%s",$NF}'`
-repo_name=GetAccountDetails
+repo_name="./GetAccountDetails"
 echo $repo_name
 cd $repo_name
 file_list=(`find . -name *.cs|grep -vE '/obj/Debug/|/obj/Release/|/Properties/|/obj/Debug/'`)
-cd ..
-echo ${file_list[*]}
-prompt=`cat ./prompt/prompt.txt|sed ':a;N;$!ba;s/\n/\\\n/g'|sed 's/\"/\\\"/g'`
-echo $prompt
-cd $repo_name
 file_content=`cat ${file_list[*]}|grep -v '//'|tr '\r\n' ' '|sed 's/\"/\\\"/g'`
 cd ..
+echo ${file_list[*]}
+prompt=`cat ./script/prompt.txt|sed ':a;N;$!ba;s/\n/\\\n/g'|sed 's/\"/\\\"/g'`
+echo $prompt
+
 ​
 mkdir -p code_conversion
 cd code_conversion
