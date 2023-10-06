@@ -61,7 +61,9 @@ awk -v RS="\`\`\`java" -v ORS="" -v ARR="${file_names[*]}" 'BEGIN {split(ARR,FIL
 for i in *.java
 do
 	pure_code=$(cat $i |awk -v RS="\`\`\`" NR==1'{print $0}')
-	echo "$pure_code" > $i
+	echo "$pure_code"|grep 'package com' >/dev/null && echo "$pure_code" > $i
+	echo "$pure_code"|grep "package ${repo_name}" && echo "$pure_code"|sed 's/package /package com./g' > $i
+	#echo "$pure_code" > $i
 done
 awk -v RS="\`\`\`xml" -v ORS="" 'NR > 1 {print $0 > "pom.xml"}' <<< "$java_code"
 pom=$(cat pom.xml|awk -v RS="\`\`\`" 'NR==1 {print $0}')
@@ -74,10 +76,16 @@ then
 	echo "$git_cmd"|awk -v FS="\`" '{print $2}'|grep '^git' > git.txt
 fi
 echo "$pom" > pom.xml
-mv *.java ../AccountDetails/src/main/java/com/example/accountdetails/
-mv pom.xml ../AccountDetails/
+#mv *.java ../AccountDetails/src/main/java/com/example/accountdetails/
+#mv pom.xml ../AccountDetails/
+proj=${repo_name}
+art=${proj}
+grp=com
+spring init --build=maven --dependencies=web --group=${grp} --artifact-id=${art} --package-name=${grp}.${art} --name=${proj} ${proj}
+mv *.java ./${proj}/src/main/java/${grp}/${proj}/
 #spring init --build=maven --dependencies=web  ${repo_name}_java
 #bash git.txt
+​
 ​
 		#echo ${code:0:len}|sed -e 's/\\n/\n/g' -e 's/\\\"/\"/g' 
 		#[[ $zip_flag ]] && rm $i # if *.cs files are extracted from zip, so after conversion we can delete them because they are already present in zip 
