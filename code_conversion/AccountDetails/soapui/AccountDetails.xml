@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="d4fcfe97-2c70-4509-8b09-4336523febb8" activeEnvironment="Default" name="Project 1" resourceRoot="" soapui-version="5.7.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="4aacacce-e4b3-41e7-8268-9376322aeb20" wsaVersion="NONE" name="SendDetailsEndpointServiceSoapBinding" type="wsdl" bindingName="{http://ai.transform.backend.com/services/senddetails}SendDetailsEndpointServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/0036CD744/Downloads/xml-download.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/C:/Users/0036CD744/Downloads/xml-download.wsdl"><con:part><con:url>file:/C:/Users/0036CD744/Downloads/xml-download.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="SendDetailsEndpointService" targetNamespace="http://ai.transform.backend.com/services/senddetails" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ai.transform.backend.com/services/senddetails" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ai.transform.backend.com/services/senddetails" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://ai.transform.backend.com/services/senddetails">
+      <xs:complexType name="sendDetailsRequest">
+        <xs:sequence>
+          <xs:element name="Id" type="xs:string"/>
+          <xs:element name="FirstName" type="xs:string"/>
+          <xs:element name="LastName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sendDetailsResponse">
+        <xs:sequence>
+          <xs:element name="AccountId" type="xs:string"/>
+          <xs:element name="TypeofAccount" type="xs:string"/>
+          <xs:element name="AccountBalance" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SendDetailsRequest" nillable="true" type="sendDetailsRequest"/>
+      <xs:element name="SendDetailsResponse" nillable="true" type="sendDetailsResponse"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="SendDetailsResponse">
+    <wsdl:part element="tns:SendDetailsResponse" name="SendDetailsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SendDetails">
+    <wsdl:part element="tns:SendDetailsRequest" name="SendDetailsRequest"/>
+  </wsdl:message>
+  <wsdl:portType name="SendDetailsEndpoint">
+    <wsdl:operation name="SendDetails">
+      <wsdl:input message="tns:SendDetails" name="SendDetails"/>
+      <wsdl:output message="tns:SendDetailsResponse" name="SendDetailsResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SendDetailsEndpointServiceSoapBinding" type="tns:SendDetailsEndpoint">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="SendDetails">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="SendDetails">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SendDetailsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SendDetailsEndpointService">
+    <wsdl:port binding="tns:SendDetailsEndpointServiceSoapBinding" name="SendDetailsEndpointPort">
+      <soap:address location="https://apps.ai.transform.backend.com:443/services/senddetails"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://IBM-1NV7NM3:8088/mockSendDetailsEndpointServiceSoapBinding</con:endpoint><con:endpoint>https://apps.ai.transform.backend.com:443/services/senddetails</con:endpoint></con:endpoints><con:operation id="f0c49ac9-943e-4a74-bdd4-0f45ca81cd5b" isOneWay="false" action="" name="SendDetails" bindingOperationName="SendDetails" type="Request-Response" outputName="SendDetailsResponse" inputName="SendDetails" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="431f0a01-3c84-4c3a-95db-95f492d42a55" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://IBM-1NV7NM3:8088/mockSendDetailsEndpointServiceSoapBinding</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sen="http://ai.transform.backend.com/services/senddetails">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <sen:SendDetailsRequest>\r
+         <sen:Id>1234</sen:Id>\r
+         <sen:FirstName>vishal</sen:FirstName>\r
+         <sen:LastName>chourasia</sen:LastName>\r
+      </sen:SendDetailsRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ai.transform.backend.com/services/senddetails/SendDetailsEndpoint/SendDetails"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="446acad3-08aa-4c18-8e02-151b6e527d8c" port="8088" path="/mockSendDetailsEndpointServiceSoapBinding" host="IBM-1NV7NM3" name="SendDetailsEndpointServiceSoapBinding MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="SendDetails" id="09104cd3-fc81-4e8a-b5c5-d592d3129f97" interface="SendDetailsEndpointServiceSoapBinding" operation="SendDetails"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="eebd6596-a82a-4860-92eb-f026cdcc6857" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sen="http://ai.transform.backend.com/services/senddetails">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sen:SendDetailsResponse>
+         <sen:AccountId>1234</sen:AccountId>
+         <sen:TypeofAccount>Saving Account</sen:TypeofAccount>
+         <sen:AccountBalance>3454$</sen:AccountBalance>
+      </sen:SendDetailsResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ai.transform.backend.com/services/senddetails/SendDetailsEndpoint/SendDetailsResponse"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
