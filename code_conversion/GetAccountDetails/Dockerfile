@@ -7,7 +7,7 @@ COPY .mvn/ .mvn
 COPY pom.xml ./
 #RUN ./mvnw dependency:go-offline
 COPY ./src ./src
-RUN ./mvn clean package
+RUN mvn clean package
 #FROM eclipse-temurin:8-jre-jammy
 WORKDIR /opt/app
 EXPOSE 8088 8085

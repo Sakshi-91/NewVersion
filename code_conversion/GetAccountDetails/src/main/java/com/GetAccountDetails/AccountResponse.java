@@ -2,7 +2,6 @@
 package com.GetAccountDetails;
 
 public class AccountResponse {
-<<<<<<< HEAD
     private String accountNumber;
     private String accountType;
     private String accountBalance;
@@ -15,51 +14,43 @@ public class AccountResponse {
         phone=Tphone;
         address=Taddress;
     }
-=======
-    private String AccountNumber;
-    private String AccountType;
-    private String AccountBalance;
-    private String Phone;
-    private Address Address;
-
->>>>>>> 3465bb1923f979d15ba114cb2fe07d6d08bc3b8c
     public String getAccountNumber() {
-        return AccountNumber;
+        return accountNumber;
     }
 
     public void setAccountNumber(String accountNumber) {
-        AccountNumber = accountNumber;
+        this.accountNumber = accountNumber;
     }
 
     public String getAccountType() {
-        return AccountType;
+        return accountType;
     }
 
     public void setAccountType(String accountType) {
-        AccountType = accountType;
+        this.accountType = accountType;
     }
 
     public String getAccountBalance() {
-        return AccountBalance;
+        return accountBalance;
     }
 
     public void setAccountBalance(String accountBalance) {
-        AccountBalance = accountBalance;
+        this.accountBalance = accountBalance;
     }
 
     public String getPhone() {
-        return Phone;
+        return phone;
     }
 
     public void setPhone(String phone) {
-        Phone = phone;
+        this.phone = phone;
     }
 
     public Address getAddress() {
-        return Address;
+        return address;
     }
 
     public void setAddress(Address address) {
-        Address = address;
+        this.address = address;
     }
 }
