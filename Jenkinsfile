@@ -35,6 +35,10 @@ pipeline {
 		  //  bat "git config --global user.name 'Sakshi-Git1'"
                 bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/AccountRequest.java"
 		bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/AccountResponse.java"
+		bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/Address.java"
+		bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/GetAccountDetailsApplication.java"
+		bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/WebService1.java"
+		bat "git add ./code_conversion/GetAccountDetails/pom.xml"
         bat "git commit -m 'AIGeneratedFiles' || echo 'Commit failed. There is probably nothing to commit.'"
             }
         }
