@@ -53,14 +53,16 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
+                     
+            <configuration>
+                <source>1.8</source> <!-- Change this to your Java version -->
+                <target>1.8</target> <!-- Change this to your Java version -->
+                <compilerArgs>
+                    <arg>-DmainClass=com.GetAccountDetails.GetAccountDetailsApplication</arg>
+                </compilerArgs>
+            </configuration>
+        </plugin>
+                
             </plugin>
         </plugins>
     </build>
