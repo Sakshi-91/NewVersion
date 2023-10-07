@@ -10,7 +10,7 @@ COPY ./src ./src
 RUN mvn clean package
 #FROM eclipse-temurin:8-jre-jammy
 WORKDIR /opt/app
-EXPOSE 8088 8085
+EXPOSE 8088 8080
 # COPY /opt/app/target/*.jar /opt/app/*.jar
 # Start SOAP UI MockService and your application
 # COPY ./soapui/*.tar.gz /opt
