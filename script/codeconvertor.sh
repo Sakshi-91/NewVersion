@@ -37,7 +37,7 @@ repo_name=`echo ${repo_name}|tr '/' ' '|tr '.' ' '`
 repo_name=`echo ${repo_name}`
 cd ..
 echo ${file_list[*]}
-prompt=`cat ./script/prompt_main.txt|sed ':a;N;$!ba;s/\n/\\\n/g'|sed 's/\"/\\\"/g'`
+prompt=`cat ./script/prompt.txt|sed ':a;N;$!ba;s/\n/\\\n/g'|sed 's/\"/\\\"/g'`
 #prompt=`cat ./prompt/prompt_main.txt|sed ':a;N;$!ba;s/\n/\\\n/g'|sed 's/\"/\\\"/g'`
 echo $prompt
 ​
