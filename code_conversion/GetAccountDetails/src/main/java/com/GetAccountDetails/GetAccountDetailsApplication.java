@@ -1,4 +1,3 @@
-Main-Class: com.GetAccountDetails.GetAccountDetailsApplication
 package com.GetAccountDetails;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
