@@ -1,0 +1,68 @@
+{
+  "Service Catalogue": [
+    {
+      "Service Name": "AccountDetails REST API",
+      "Service Description": "Retrieve account information by account number.",
+      "Service Owner/Responsible Team": {
+        "Service Owner": "DT4",
+        "Responsible Team": "AI Code Crafters 1.0"
+      },
+      "Service Category": "Financial Services",
+      "Service Level Agreement": {
+        "Response Time": "99% within 500ms",
+        "Availability": "24/7"
+      },
+      "Service Availability": "24/7, with planned maintenance notifications.",
+      "Service Scope": "Retrieve account details including balance, account type, and account holder information.",
+      "Service Dependencies": {
+        "Authentication and authorization services": "Service Mesh",
+        "Backend databases and systems for account information": "SAP"
+      },
+      "Service Request Handling Process": {
+        "Method": "GET",
+        "URI Parameters": [
+          {
+            "Name": "accountNumber",
+            "Description": "The account number for which account information is requested.",
+            "Type": "Path Parameter"
+          }
+        ]
+      },
+      "Service Catalog Version History": [
+        "Version 1.0 (Initial Release, 07/10/2023)"
+      ]
+    },
+    {
+      "Service Name": "ProductDetails REST API",
+      "Service Description": "Retrieve product information by product ID.",
+      "Service Owner/Responsible Team": {
+        "Service Owner": "DT4",
+        "Responsible Team": "AI Code Crafters 1.0"
+      },
+      "Service Category": "Retail Services",
+      "Service Level Agreement": {
+        "Response Time": "98% within 600ms",
+        "Availability": "24/7"
+      },
+      "Service Availability": "24/7, with planned maintenance notifications.",
+      "Service Scope": "Retrieve product details including name, price, description, and availability. Clients make GET requests to `/product/{productID}`.",
+      "Service Dependencies": {
+        "Authentication and authorization services": "Service Mesh",
+        "Backend databases and systems for account information": "SAP"
+      },
+      "Service Request/Incident Handling Process": {
+        "Method": "GET",
+        "URI Parameters": [
+          {
+            "Name": "productID",
+            "Description": "The product ID for which product information is requested.",
+            "Type": "Path Parameter"
+          }
+        ]
+      },
+      "Service Catalog Version History": [
+        "Version 1.0 (Initial Release, 07/10/2023)"
+      ]
+    }
+  ]
+}
