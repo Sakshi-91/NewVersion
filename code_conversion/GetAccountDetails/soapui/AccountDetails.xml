@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="751c1a1f-7fc7-469b-81cd-75aee9007c15" created="3.48.0" activeEnvironment="Default environment" encryptionMode="Not encrypted" name="AccountDetails" resourceRoot="${projectDir}" projectVersion="" updated="3.48.0 2023-08-30T15:44:06Z" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="751c1a1f-7fc7-469b-81cd-75aee9007c15" created="3.48.0" activeEnvironment="Default" encryptionMode="Not encrypted" name="AccountDetails" resourceRoot="${projectDir}" projectVersion="" updated="3.48.0 2023-08-30T15:44:06Z" abortOnError="false" runType="SEQUENTIAL" soapui-version="5.7.1" xmlns:con="http://eviware.com/soapui/config">
   <con:settings/>
   <con:interface xsi:type="con:WsdlInterface" id="494a9f0e-6b38-429d-9b5f-eedaf5c668dd" wsaVersion="NONE" name="GetAgreementDetailsEndpointServiceSoapBinding" type="wsdl" bindingName="{http://ai.transform.backend.com/services/GetAgreementDetails}GetAgreementDetailsEndpointServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/0036CD744/Documents/New%20folder/GetAgreementDetails.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:settings id="623790e3-765b-4810-8b38-8d80a27356e6"/>
@@ -84,7 +84,7 @@
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <get:GetAgreementDetailsRequest>\r
-         <get:AgreementNumber>11324</get:AgreementNumber>\r
+         <get:AgreementNumber>1234567890</get:AgreementNumber>\r
       </get:GetAgreementDetailsRequest>\r
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request>
@@ -93,7 +93,7 @@
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ai.transform.backend.com/services/GetAgreementDetails/GetAgreementDetailsEndpoint/GetAgreementDetailsRequest"/>
+        <con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ai.transform.backend.com/services/GetAgreementDetails/GetAgreementDetailsEndpoint/GetAgreementDetailsRequest"/>
         <con:wsrmConfig version="1.2"/>
       </con:call>
     </con:operation>
@@ -118,18 +118,22 @@
     <con:headerValidator type="NONE"/>
     <con:mockOperation name="GetAgreementDetails" id="2311194e-856b-4dd6-801d-67a52c1b68a3" interface="GetAgreementDetailsEndpointServiceSoapBinding" operation="GetAgreementDetails">
       <con:settings/>
-      <con:defaultResponse>Response 2</con:defaultResponse>
-      <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
-      <con:dispatchConfig/>
+      <con:defaultResponse>GetAgreementDetails Response</con:defaultResponse>
+      <con:dispatchStyle>SCRIPT</con:dispatchStyle>
+      <con:dispatchPath>// create XmlHolder for request content
+def holder = new com.eviware.soapui.support.XmlHolder( mockRequest.requestContent )
+// get arguments and sum
+def arg1 = Integer.parseInt( holder["//*[local-name()='AgreementNumber']"] )
+requestContext.arg1 =  arg1</con:dispatchPath><con:dispatchConfig/>
       <con:dispatchXPath/>
       <con:routeScript/>
-      <con:response name="Response 2" id="c56d9d8f-5d7d-4ec4-9936-b2ae1f0decdc" httpResponseStatus="200" encoding="UTF-8" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200035a000a636f6d707265737365644c000b636f6d7072657373696f6e74003d4c636f6d2f657669776172652f736f617075692f696d706c2f737570706f72742f436f6d7072657373656456616c756524436f6d7072657373696f6e3b5b0004646174617400025b427870007e72003b636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c756524436f6d7072657373696f6e00000000000000001200007872000e6a6176612e6c616e672e456e756d000000000000000012000078707400044e4f4e4570" dataSource="">
+      <con:response name="GetAgreementDetails Response" id="c56d9d8f-5d7d-4ec4-9936-b2ae1f0decdc" httpResponseStatus="200" encoding="UTF-8" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200035a000a636f6d707265737365644c000b636f6d7072657373696f6e74003d4c636f6d2f657669776172652f736f617075692f696d706c2f737570706f72742f436f6d7072657373656456616c756524436f6d7072657373696f6e3b5b0004646174617400025b427870007e72003b636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c756524436f6d7072657373696f6e00000000000000001200007872000e6a6176612e6c616e672e456e756d000000000000000012000078707400044e4f4e4570" dataSource="">
         <con:settings/>
         <con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="http://ai.transform.backend.com/services/GetAgreementDetails">
    <soapenv:Header/>
    <soapenv:Body>
       <get:GetAgreementDetailsResponse>
-         <get:AgreementNumber>1244</get:AgreementNumber>
+         <get:AgreementNumber>${arg1}</get:AgreementNumber>
          <get:AgreementType>SA</get:AgreementType>
          <get:Balance>1200</get:Balance>
          <get:ContactPoint>
@@ -144,51 +148,11 @@
 </soapenv:Envelope>]]></con:responseContent>
         <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ai.transform.backend.com/services/GetAgreementDetails/GetAgreementDetailsEndpoint/GetAgreementDetailsResponse"/>
       </con:response>
-      <con:response name="Response 3" id="b336a315-fdc8-47e6-9f15-91cd98473929" httpResponseStatus="200" encoding="UTF-8" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200035a000a636f6d707265737365644c000b636f6d7072657373696f6e74003d4c636f6d2f657669776172652f736f617075692f696d706c2f737570706f72742f436f6d7072657373656456616c756524436f6d7072657373696f6e3b5b0004646174617400025b427870007e72003b636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c756524436f6d7072657373696f6e00000000000000001200007872000e6a6176612e6c616e672e456e756d000000000000000012000078707400044e4f4e4570" dataSource="">
-        <con:settings/>
-        <con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="http://ai.transform.backend.com/services/GetAgreementDetails">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <get:GetAgreementDetailsResponse>
-         <get:AgreementNumber>7463264</get:AgreementNumber>
-         <get:AgreementType>CU</get:AgreementType>
-         <get:Balance>1727394</get:Balance>
-         <get:ContactPoint>
-            <get:AddressLine1>AddressLine1</get:AddressLine1>
-            <get:AddressLine2>AddressLine2</get:AddressLine2>
-            <get:Country>Country2</get:Country>
-            <get:PostalCode>122034</get:PostalCode>
-         </get:ContactPoint>
-         <get:Phone>45768</get:Phone>
-      </get:GetAgreementDetailsResponse>
-   </soapenv:Body>
-</soapenv:Envelope>]]></con:responseContent>
-        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ai.transform.backend.com/services/GetAgreementDetails/GetAgreementDetailsEndpoint/GetAgreementDetailsResponse"/>
-      </con:response>
-      <con:response name="Response 4" id="44567acb-b7e7-4f3d-9180-32c6b0c2e7dd" httpResponseStatus="200" encoding="UTF-8" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200035a000a636f6d707265737365644c000b636f6d7072657373696f6e74003d4c636f6d2f657669776172652f736f617075692f696d706c2f737570706f72742f436f6d7072657373656456616c756524436f6d7072657373696f6e3b5b0004646174617400025b427870007e72003b636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c756524436f6d7072657373696f6e00000000000000001200007872000e6a6176612e6c616e672e456e756d000000000000000012000078707400044e4f4e4570" dataSource="">
-        <con:settings/>
-        <con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="http://ai.transform.backend.com/services/GetAgreementDetails">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <get:GetAgreementDetailsResponse>
-         <get:AgreementNumber>56457</get:AgreementNumber>
-         <get:AgreementType>DA</get:AgreementType>
-         <get:Balance>76756</get:Balance>
-         <get:ContactPoint>
-            <get:AddressLine1>AddressLine1</get:AddressLine1>
-            <get:AddressLine2>AddressLine2</get:AddressLine2>
-            <get:Country>Country3</get:Country>
-            <get:PostalCode>122035</get:PostalCode>
-         </get:ContactPoint>
-         <get:Phone>4546</get:Phone>
-      </get:GetAgreementDetailsResponse>
-   </soapenv:Body>
-</soapenv:Envelope>]]></con:responseContent>
-        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ai.transform.backend.com/services/GetAgreementDetails/GetAgreementDetailsEndpoint/GetAgreementDetailsResponse"/>
-      </con:response>
+      
+      
     </con:mockOperation>
   </con:mockService>
-  <con:properties/>
+  <con:properties><con:property><con:name>request</con:name><con:value>test</con:value></con:property></con:properties>
   <con:wssContainer/>
   <con:databaseConnectionContainer/>
   <con:jmsConnectionContainer/>
