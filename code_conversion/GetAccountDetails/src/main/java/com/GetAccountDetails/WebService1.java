@@ -1,43 +1,52 @@
-package com.example.accountdetails;
 
-public class AccountModel {
-    private String accountNumber;
-    private String accountName;
-    private String balance;
+package com.GetAccountDetails;
 
-    // Default constructor
-    public AccountModel() {
-    }
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
-    // Parameterized constructor
-    public AccountModel(String accountNumber, String accountName, String balance) {
-        this.accountNumber = accountNumber;
-        this.accountName = accountName;
-        this.balance = balance;
-    }
+import java.nio.charset.StandardCharsets;
 
-    // Getters and setters
-    public String getAccountNumber() {
-        return accountNumber;
-    }
+@RestController
+public class WebService1 {
 
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
+    @GetMapping("/GetAccountDetails/{accountNumber}")
+    public AccountResponse getAccountDetails(@PathVariable String accountNumber) {
+        String soapRequest = "<soapenv:Envelope xmlns:soapenv=\\"http://schemas.xmlsoap.org/soap/envelope/\\" xmlns:get=\\"http://example.com/GetAgreementDetails/\\">\
+" +
+                "    <soapenv:Header/>\
+" +
+                "    <soapenv:Body>\
+" +
+                "        <get:GetAgreementDetailsRequest>\
+" +
+                "            <get:AgreementNumber>" + accountNumber + "</get:AgreementNumber>\
+" +
+                "        </get:GetAgreementDetailsRequest>\
+" +
+                "    </soapenv:Body>\
+" +
+                "</soapenv:Envelope>";
 
-    public String getAccountName() {
-        return accountName;
-    }
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_XML);
+        HttpEntity<String> requestEntity = new HttpEntity<>(soapRequest, headers);
 
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
-    }
+        RestTemplate restTemplate = new RestTemplate();
+        String soapResponse = restTemplate.exchange("http://backend-url/GetAgreementDetails", HttpMethod.POST, requestEntity, String.class).getBody();
 
-    public String getBalance() {
-        return balance;
-    }
+        // Parse the soapResponse and extract the required values
+        // ...
 
-    public void setBalance(String balance) {
-        this.balance = balance;
+        AccountResponse accountResponse = new AccountResponse();
+        // Set the values to accountResponse
+        // ...
+
+        return accountResponse;
     }
 }

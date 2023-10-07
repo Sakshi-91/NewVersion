@@ -1,15 +1,13 @@
-package com.example.accountdetails;
-
+package com.GetAccountDetails;
+​
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
+​
 @SpringBootApplication
-//@EnableSwagger2
-public class AccountDetailsApplication {
-
+public class GetAccountDetailsApplication {
+​
 	public static void main(String[] args) {
-		SpringApplication.run(AccountDetailsApplication.class, args);
+		SpringApplication.run(GetAccountDetailsApplication.class, args);
 	}
-
+​
 }
