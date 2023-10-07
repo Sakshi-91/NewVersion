@@ -7,7 +7,7 @@ COPY .mvn/ .mvn
 COPY pom.xml ./
 #RUN ./mvnw dependency:go-offline
 COPY ./src ./src
-RUN sudo yum install mvn
+RUN yum install mvn
 RUN ./mvn clean package
 #FROM eclipse-temurin:8-jre-jammy
 WORKDIR /opt/app
