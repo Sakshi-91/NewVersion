@@ -1,70 +1,232 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="d4fcfe97-2c70-4509-8b09-4336523febb8" activeEnvironment="Default" name="Project 1" resourceRoot="" soapui-version="5.7.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="4aacacce-e4b3-41e7-8268-9376322aeb20" wsaVersion="NONE" name="SendDetailsEndpointServiceSoapBinding" type="wsdl" bindingName="{http://ai.transform.backend.com/services/senddetails}SendDetailsEndpointServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/0036CD744/Downloads/xml-download.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/C:/Users/0036CD744/Downloads/xml-download.wsdl"><con:part><con:url>file:/C:/Users/0036CD744/Downloads/xml-download.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="SendDetailsEndpointService" targetNamespace="http://ai.transform.backend.com/services/senddetails" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ai.transform.backend.com/services/senddetails" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+<con:soapui-project id="751c1a1f-7fc7-469b-81cd-75aee9007c15" created="3.48.0" activeEnvironment="Default environment" encryptionMode="Not encrypted" name="AccountDetails" resourceRoot="${projectDir}" projectVersion="" updated="3.48.0 2023-08-30T15:44:06Z" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:WsdlInterface" id="494a9f0e-6b38-429d-9b5f-eedaf5c668dd" wsaVersion="NONE" name="GetAgreementDetailsEndpointServiceSoapBinding" type="wsdl" bindingName="{http://ai.transform.backend.com/services/GetAgreementDetails}GetAgreementDetailsEndpointServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/0036CD744/Documents/New%20folder/GetAgreementDetails.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings id="623790e3-765b-4810-8b38-8d80a27356e6"/>
+    <con:definitionCache type="TEXT" rootPart="file:\C:\Users\0036CD744\Documents\New%20folder\GetAgreementDetails.wsdl">
+      <con:part>
+        <con:url>file:\C:\Users\0036CD744\Documents\New%20folder\GetAgreementDetails.wsdl</con:url>
+        <con:content><![CDATA[<wsdl:definitions name="GetAgreementDetailsEndpointService" targetNamespace="http://ai.transform.backend.com/services/GetAgreementDetails" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ai.transform.backend.com/services/GetAgreementDetails" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
   <wsdl:types>
-    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ai.transform.backend.com/services/senddetails" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://ai.transform.backend.com/services/senddetails">
-      <xs:complexType name="sendDetailsRequest">
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ai.transform.backend.com/services/GetAgreementDetails" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://ai.transform.backend.com/services/GetAgreementDetails">
+      <xs:complexType name="GetAgreementDetailsRequest">
         <xs:sequence>
-          <xs:element name="Id" type="xs:string"/>
-          <xs:element name="FirstName" type="xs:string"/>
-          <xs:element name="LastName" type="xs:string"/>
+          <xs:element name="AgreementNumber" type="xs:string"/>
         </xs:sequence>
       </xs:complexType>
-      <xs:complexType name="sendDetailsResponse">
+      <xs:complexType name="GetAgreementDetailsResponse">
         <xs:sequence>
-          <xs:element name="AccountId" type="xs:string"/>
-          <xs:element name="TypeofAccount" type="xs:string"/>
-          <xs:element name="AccountBalance" type="xs:string"/>
+          <xs:element name="AgreementNumber" type="xs:string"/>
+          <xs:element name="AgreementType" type="xs:string"/>
+          <xs:element name="Balance" type="xs:string"/>
+          <xs:element name="ContactPoint">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="AddressLine1" type="xs:string"/>
+                <xs:element name="AddressLine2" type="xs:string"/>
+                <xs:element name="Country" type="xs:string"/>
+                <xs:element name="PostalCode" type="xs:string"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Phone" type="xs:string"/>
         </xs:sequence>
       </xs:complexType>
-      <xs:element name="SendDetailsRequest" nillable="true" type="sendDetailsRequest"/>
-      <xs:element name="SendDetailsResponse" nillable="true" type="sendDetailsResponse"/>
+      <xs:element name="GetAgreementDetailsRequest" nillable="true" type="GetAgreementDetailsRequest"/>
+      <xs:element name="GetAgreementDetailsResponse" nillable="true" type="GetAgreementDetailsResponse"/>
     </xs:schema>
   </wsdl:types>
-  <wsdl:message name="SendDetailsResponse">
-    <wsdl:part element="tns:SendDetailsResponse" name="SendDetailsResponse"/>
+  <wsdl:message name="GetAgreementDetailsResponse">
+    <wsdl:part element="tns:GetAgreementDetailsResponse" name="GetAgreementDetailsResponse"/>
   </wsdl:message>
-  <wsdl:message name="SendDetails">
-    <wsdl:part element="tns:SendDetailsRequest" name="SendDetailsRequest"/>
+  <wsdl:message name="GetAgreementDetailsRequest">
+    <wsdl:part element="tns:GetAgreementDetailsRequest" name="GetAgreementDetailsRequest"/>
   </wsdl:message>
-  <wsdl:portType name="SendDetailsEndpoint">
-    <wsdl:operation name="SendDetails">
-      <wsdl:input message="tns:SendDetails" name="SendDetails"/>
-      <wsdl:output message="tns:SendDetailsResponse" name="SendDetailsResponse"/>
+  <wsdl:portType name="GetAgreementDetailsEndpoint">
+    <wsdl:operation name="GetAgreementDetails">
+      <wsdl:input message="tns:GetAgreementDetailsRequest" name="GetAgreementDetailsRequest"/>
+      <wsdl:output message="tns:GetAgreementDetailsResponse" name="GetAgreementDetailsResponse"/>
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="SendDetailsEndpointServiceSoapBinding" type="tns:SendDetailsEndpoint">
+  <wsdl:binding name="GetAgreementDetailsEndpointServiceSoapBinding" type="tns:GetAgreementDetailsEndpoint">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="SendDetails">
+    <wsdl:operation name="GetAgreementDetails">
       <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="SendDetails">
+      <wsdl:input name="GetAgreementDetailsRequest">
         <soap:body use="literal"/>
       </wsdl:input>
-      <wsdl:output name="SendDetailsResponse">
+      <wsdl:output name="GetAgreementDetailsResponse">
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="SendDetailsEndpointService">
-    <wsdl:port binding="tns:SendDetailsEndpointServiceSoapBinding" name="SendDetailsEndpointPort">
-      <soap:address location="https://apps.ai.transform.backend.com:443/services/senddetails"/>
+  <wsdl:service name="GetAgreementDetailsEndpointService">
+    <wsdl:port binding="tns:GetAgreementDetailsEndpointServiceSoapBinding" name="GetAgreementDetailsEndpointPort">
+      <soap:address location="https://apps.ai.transform.backend.com:443/services/GetAgreementDetails"/>
     </wsdl:port>
   </wsdl:service>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://IBM-1NV7NM3:8088/mockSendDetailsEndpointServiceSoapBinding</con:endpoint><con:endpoint>https://apps.ai.transform.backend.com:443/services/senddetails</con:endpoint></con:endpoints><con:operation id="f0c49ac9-943e-4a74-bdd4-0f45ca81cd5b" isOneWay="false" action="" name="SendDetails" bindingOperationName="SendDetails" type="Request-Response" outputName="SendDetailsResponse" inputName="SendDetails" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="431f0a01-3c84-4c3a-95db-95f492d42a55" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://IBM-1NV7NM3:8088/mockSendDetailsEndpointServiceSoapBinding</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sen="http://ai.transform.backend.com/services/senddetails">\r
+</wsdl:definitions>]]></con:content>
+        <con:type>http://schemas.xmlsoap.org/wsdl/</con:type>
+      </con:part>
+    </con:definitionCache>
+    <con:endpoints>
+      <con:endpoint>https://apps.ai.transform.backend.com:443/services/GetAgreementDetails</con:endpoint>
+    </con:endpoints>
+    <con:operation id="e0233c77-1456-4318-a3cc-46a625f915ea" isOneWay="false" action="" name="GetAgreementDetails" bindingOperationName="GetAgreementDetails" type="Request-Response" outputName="GetAgreementDetailsResponse" inputName="GetAgreementDetailsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
+      <con:settings/>
+      <con:call id="469a6798-e85b-4df5-892c-e22f6ecf1bf6" name="GetAgreementDetails Request">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>http://localhost:8088/GetAgreementDetails</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="http://ai.transform.backend.com/services/GetAgreementDetails">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
-      <sen:SendDetailsRequest>\r
-         <sen:Id>1234</sen:Id>\r
-         <sen:FirstName>vishal</sen:FirstName>\r
-         <sen:LastName>chourasia</sen:LastName>\r
-      </sen:SendDetailsRequest>\r
+      <get:GetAgreementDetailsRequest>\r
+         <get:AgreementNumber>11324</get:AgreementNumber>\r
+      </get:GetAgreementDetailsRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ai.transform.backend.com/services/senddetails/SendDetailsEndpoint/SendDetails"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="446acad3-08aa-4c18-8e02-151b6e527d8c" port="8088" path="/mockSendDetailsEndpointServiceSoapBinding" host="IBM-1NV7NM3" name="SendDetailsEndpointServiceSoapBinding MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="SendDetails" id="09104cd3-fc81-4e8a-b5c5-d592d3129f97" interface="SendDetailsEndpointServiceSoapBinding" operation="SendDetails"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="eebd6596-a82a-4860-92eb-f026cdcc6857" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sen="http://ai.transform.backend.com/services/senddetails">
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ai.transform.backend.com/services/GetAgreementDetails/GetAgreementDetailsEndpoint/GetAgreementDetailsRequest"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:call>
+    </con:operation>
+  </con:interface>
+  <con:mockService id="5dfa635c-bbb6-415c-884b-a61b314205c0" port="8088" path="/" host="localhost" name="SOAP Virtual Service 1">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting>
+    </con:settings>
+    <con:properties/>
+    <con:constraints>
+      <con:congestion>0</con:congestion>
+      <con:inputBandwidth>-1</con:inputBandwidth>
+      <con:outputBandwidth>-1</con:outputBandwidth>
+      <con:maxThreadPoolCapacity>20</con:maxThreadPoolCapacity>
+      <con:coreThreadPoolCapacity>5</con:coreThreadPoolCapacity>
+      <con:virtError>
+        <con:start>0</con:start>
+        <con:endless>true</con:endless>
+      </con:virtError>
+    </con:constraints>
+    <con:dataSources/>
+    <con:headerValidator type="NONE"/>
+    <con:mockOperation name="GetAgreementDetails" id="2311194e-856b-4dd6-801d-67a52c1b68a3" interface="GetAgreementDetailsEndpointServiceSoapBinding" operation="GetAgreementDetails">
+      <con:settings/>
+      <con:defaultResponse>Response 2</con:defaultResponse>
+      <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
+      <con:dispatchConfig/>
+      <con:dispatchXPath/>
+      <con:routeScript/>
+      <con:response name="Response 2" id="c56d9d8f-5d7d-4ec4-9936-b2ae1f0decdc" httpResponseStatus="200" encoding="UTF-8" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200035a000a636f6d707265737365644c000b636f6d7072657373696f6e74003d4c636f6d2f657669776172652f736f617075692f696d706c2f737570706f72742f436f6d7072657373656456616c756524436f6d7072657373696f6e3b5b0004646174617400025b427870007e72003b636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c756524436f6d7072657373696f6e00000000000000001200007872000e6a6176612e6c616e672e456e756d000000000000000012000078707400044e4f4e4570" dataSource="">
+        <con:settings/>
+        <con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="http://ai.transform.backend.com/services/GetAgreementDetails">
    <soapenv:Header/>
    <soapenv:Body>
-      <sen:SendDetailsResponse>
-         <sen:AccountId>1234</sen:AccountId>
-         <sen:TypeofAccount>Saving Account</sen:TypeofAccount>
-         <sen:AccountBalance>3454$</sen:AccountBalance>
-      </sen:SendDetailsResponse>
+      <get:GetAgreementDetailsResponse>
+         <get:AgreementNumber>1244</get:AgreementNumber>
+         <get:AgreementType>SA</get:AgreementType>
+         <get:Balance>1200</get:Balance>
+         <get:ContactPoint>
+            <get:AddressLine1>Address1</get:AddressLine1>
+            <get:AddressLine2>AddressLine2</get:AddressLine2>
+            <get:Country>Country</get:Country>
+            <get:PostalCode>122033</get:PostalCode>
+         </get:ContactPoint>
+         <get:Phone>2384324</get:Phone>
+      </get:GetAgreementDetailsResponse>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ai.transform.backend.com/services/senddetails/SendDetailsEndpoint/SendDetailsResponse"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
+</soapenv:Envelope>]]></con:responseContent>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ai.transform.backend.com/services/GetAgreementDetails/GetAgreementDetailsEndpoint/GetAgreementDetailsResponse"/>
+      </con:response>
+      <con:response name="Response 3" id="b336a315-fdc8-47e6-9f15-91cd98473929" httpResponseStatus="200" encoding="UTF-8" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200035a000a636f6d707265737365644c000b636f6d7072657373696f6e74003d4c636f6d2f657669776172652f736f617075692f696d706c2f737570706f72742f436f6d7072657373656456616c756524436f6d7072657373696f6e3b5b0004646174617400025b427870007e72003b636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c756524436f6d7072657373696f6e00000000000000001200007872000e6a6176612e6c616e672e456e756d000000000000000012000078707400044e4f4e4570" dataSource="">
+        <con:settings/>
+        <con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="http://ai.transform.backend.com/services/GetAgreementDetails">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <get:GetAgreementDetailsResponse>
+         <get:AgreementNumber>7463264</get:AgreementNumber>
+         <get:AgreementType>CU</get:AgreementType>
+         <get:Balance>1727394</get:Balance>
+         <get:ContactPoint>
+            <get:AddressLine1>AddressLine1</get:AddressLine1>
+            <get:AddressLine2>AddressLine2</get:AddressLine2>
+            <get:Country>Country2</get:Country>
+            <get:PostalCode>122034</get:PostalCode>
+         </get:ContactPoint>
+         <get:Phone>45768</get:Phone>
+      </get:GetAgreementDetailsResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ai.transform.backend.com/services/GetAgreementDetails/GetAgreementDetailsEndpoint/GetAgreementDetailsResponse"/>
+      </con:response>
+      <con:response name="Response 4" id="44567acb-b7e7-4f3d-9180-32c6b0c2e7dd" httpResponseStatus="200" encoding="UTF-8" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200035a000a636f6d707265737365644c000b636f6d7072657373696f6e74003d4c636f6d2f657669776172652f736f617075692f696d706c2f737570706f72742f436f6d7072657373656456616c756524436f6d7072657373696f6e3b5b0004646174617400025b427870007e72003b636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c756524436f6d7072657373696f6e00000000000000001200007872000e6a6176612e6c616e672e456e756d000000000000000012000078707400044e4f4e4570" dataSource="">
+        <con:settings/>
+        <con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="http://ai.transform.backend.com/services/GetAgreementDetails">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <get:GetAgreementDetailsResponse>
+         <get:AgreementNumber>56457</get:AgreementNumber>
+         <get:AgreementType>DA</get:AgreementType>
+         <get:Balance>76756</get:Balance>
+         <get:ContactPoint>
+            <get:AddressLine1>AddressLine1</get:AddressLine1>
+            <get:AddressLine2>AddressLine2</get:AddressLine2>
+            <get:Country>Country3</get:Country>
+            <get:PostalCode>122035</get:PostalCode>
+         </get:ContactPoint>
+         <get:Phone>4546</get:Phone>
+      </get:GetAgreementDetailsResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ai.transform.backend.com/services/GetAgreementDetails/GetAgreementDetailsEndpoint/GetAgreementDetailsResponse"/>
+      </con:response>
+    </con:mockOperation>
+  </con:mockService>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:xmlTemplates/>
+    <con:parameters/>
+  </con:reporting>
+  <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to ReadyAPI functional tests
+
+// If hardcoding the token, uncomment and change line 5
+// token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new java.io.FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new java.io.PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:authRepository/>
+  <con:tags/>
+</con:soapui-project>
