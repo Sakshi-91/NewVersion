@@ -4,6 +4,7 @@ package com.GetAccountDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+<<<<<<< HEAD
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.*;
@@ -90,5 +91,27 @@ public class WebService1 {
         Address address = new Address(addressLine1, addressLine2, country, postalCode);
         AccountResponse ar =  new AccountResponse(agreementNumber, agreementType, balance, address, phone);
         return ar;
+=======
+
+import java.util.HashMap;
+import java.util.Map;
+
+@RestController
+public class WebService1 {
+    private static final String BACKEND_URL = "http://backend-url.com";
+
+    @GetMapping("/GetAccountDetails/{accountNumber}")
+    public AccountResponse getAccountDetails(@PathVariable String accountNumber) {
+        String readTask = null;
+        AccountResponse accountResponse = new AccountResponse();
+
+        // Make HTTP request to backend URL
+        // ...
+
+        // Parse response and populate accountResponse object
+        // ...
+
+        return accountResponse;
+>>>>>>> 3465bb1923f979d15ba114cb2fe07d6d08bc3b8c
     }
 }

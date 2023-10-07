@@ -2,13 +2,13 @@
 package com.GetAccountDetails;
 
 public class AccountRequest {
-    private String accountNumber;
+    private String AccountNumber;
 
     public String getAccountNumber() {
-        return accountNumber;
+        return AccountNumber;
     }
 
     public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
+        AccountNumber = accountNumber;
     }
 }
