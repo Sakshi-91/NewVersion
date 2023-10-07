@@ -112,8 +112,3 @@ mv *.java "./${proj}/src/main/java/${grp}/${proj}/"
 mv pom.xml "./${proj}/"
 #spring init --build=maven --dependencies=web  ${repo_name}_java
 #bash git.txt
-​
-​
-		#echo ${code:0:len}|sed -e 's/\\n/\n/g' -e 's/\\\"/\"/g' 
-		#[[ $zip_flag ]] && rm $i # if *.cs files are extracted from zip, so after conversion we can delete them because they are already present in zip 
-	#[[ $zip_flag ]] && zip -q ${zip_file%.zip}_java.zip ${java_list[*]} && rm ${java_list[*]} # after compressing java files into zip, we can delete them because they are available in zip file.
