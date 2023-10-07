@@ -1,13 +1,12 @@
 # Stage 1: Build Stage
 #FROM eclipse-temurin:8-jdk-jammy as BUILD
-FROM sudhirkr92/java-soapui-base
+FROM sudhirkr92/java17-soap-ui-base
 WORKDIR /opt/app
 COPY .mvn/ .mvn
 #COPY mvnw pom.xml ./
 COPY pom.xml ./
 #RUN ./mvnw dependency:go-offline
 COPY ./src ./src
-RUN yum install mvn
 RUN ./mvn clean package
 #FROM eclipse-temurin:8-jre-jammy
 WORKDIR /opt/app
