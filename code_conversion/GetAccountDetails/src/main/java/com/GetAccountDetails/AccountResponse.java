@@ -7,7 +7,13 @@ public class AccountResponse {
     private String accountBalance;
     private String phone;
     private Address address;
-
+    public AccountResponse(String TaccountNumber, String TaccountType, String TaccountBalance, Address Taddress, String Tphone) {
+        accountNumber=TaccountNumber;
+        accountType=TaccountType;
+        accountBalance=TaccountBalance;
+        phone=Tphone;
+        address=Taddress;
+    }
     public String getAccountNumber() {
         return accountNumber;
     }
