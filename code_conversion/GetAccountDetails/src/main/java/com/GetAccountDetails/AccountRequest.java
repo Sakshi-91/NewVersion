@@ -1,4 +1,5 @@
-package com.example.accountdetails;
+
+package com.GetAccountDetails;
 
 public class AccountRequest {
     private String accountNumber;
