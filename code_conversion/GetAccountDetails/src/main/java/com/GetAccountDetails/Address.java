@@ -2,40 +2,40 @@
 package com.GetAccountDetails;
 
 public class Address {
-    private String firstLine;
-    private String secondLine;
-    private String country;
-    private String postalCode;
+    private String FirstLine;
+    private String SecondLine;
+    private String Country;
+    private String PostalCode;
 
     public String getFirstLine() {
-        return firstLine;
+        return FirstLine;
     }
 
     public void setFirstLine(String firstLine) {
-        this.firstLine = firstLine;
+        FirstLine = firstLine;
     }
 
     public String getSecondLine() {
-        return secondLine;
+        return SecondLine;
     }
 
     public void setSecondLine(String secondLine) {
-        this.secondLine = secondLine;
+        SecondLine = secondLine;
     }
 
     public String getCountry() {
-        return country;
+        return Country;
     }
 
     public void setCountry(String country) {
-        this.country = country;
+        Country = country;
     }
 
     public String getPostalCode() {
-        return postalCode;
+        return PostalCode;
     }
 
     public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
+        PostalCode = postalCode;
     }
 }
