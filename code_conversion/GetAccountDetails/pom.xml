@@ -53,14 +53,17 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
-                     
-            <configuration>
-                <source>1.8</source> <!-- Change this to your Java version -->
-                <target>1.8</target> <!-- Change this to your Java version -->
-                <compilerArgs>
-                    <arg>-DmainClass=com.GetAccountDetails.GetAccountDetailsApplication</arg>
-                </compilerArgs>
-            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>repackage</goal>
+                    </goals>
+                    <configuration>
+                        <mainClass>com.GetAccountDetails.GetAccountDetailsApplication</mainClass> <!-- Replace with your main class -->
+                    </configuration>
+                </execution>
+            </executions>         
+            
         </plugin>
                 
             </plugin>
