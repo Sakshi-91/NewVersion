@@ -64,7 +64,7 @@ pipeline {
         stage('Build Docker image') {
             steps {
                 echo "Building the docker Image based on Dockerfile"
-	        bat "cd AccountDetails & dos2unix mvnw & docker build -t sakshidocker12/hackthon-23 . --no-cache=true"
+	        bat "cd code_conversion & dos2unix mvnw & docker build -t sakshidocker12/hackthon-23 . --no-cache=true"
 		//sh "cd demo1 & chmod a+rw . & dos2unix mvnw & docker build -t sakshidocker12/hackthon-23 . --no-cache=true"
             }
         } 
