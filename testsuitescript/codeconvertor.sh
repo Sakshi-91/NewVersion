@@ -2,27 +2,30 @@
 #set -x
 convert_code()
 {
+a="sk-H8D3LLvmzJW5MLN35"
+b="yppT3BlbkFJgZjtZ38o0"
+c="R2DnDt3FENp"
+api_key=$a$b$c
 #echo $1
 curl --silent $url \
-		-H "Authorization: Bearer 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" \
+		-H "Authorization: Bearer $api_key" \
 		-H "Content-Type: application/json" \
 		-d "{
 		     \"model\": \"gpt-3.5-turbo\",
-	    	     \"messages\": [{\"role\": \"user\", \"content\": \"Provide an SOAPUI XML project file to test the below requirement with all possible testcases: A c# code \n\n which accept the Account Number as input and provide output in REST format with all the details coming from the stub, it also intreact with one backend stub which is SOAP based and accepts Request:\"}],
-		     \"temperature\": 0.7
-	            }" \
-		|awk -F\" '
-		$2=="content" {
-				print $0
-				}' \
-		|awk -F\"content\": '
-			{
-			   print $2
-		   	}'
+	    	     \"messages\": [{\"role\": \"user\", \"content\": \"$1\n$2\"}],
+		     \"temperature\": 0.5
+	            }" 
 }
-​
+
 #url=https://jsonplaceholder.typicode.com/posts
 url=https://api.openai.com/v1/chat/completions
-	cs_file=`cat $1|tr '\r\n' ' '|sed 's/\"/\\\"/g'`
-	soap_file=`cat $2|tr '\r\n' ' '|sed 's/\"/\\\"/g'`
-	convert_code "$cs_file" "$soap_file"  
+repo_name="./GetAccountDetails"
+cd $repo_name
+file_list=(`find . -name *.java`)
+echo ${file_list[*]}
+file_content=`cat ${file_list[*]}|grep -v '//'|tr '\r\n' ' '|sed 's/\"/\\\"/g'`
+cd ..
+prompt=`cat ./prompt/prompt_for_test_suite.txt|sed ':a;N;$!ba;s/\n/\\\n/g'|sed 's/\"/\\\"/g'`
+echo "${prompt}"
+#convert_code "$prompt" "$req_file" 
+convert_code "$prompt" "$file_content"|sed -e 's/\\n/\n/g' -e 's/\\\"/\"/g' -e 's/\\t/	/g'
