@@ -25,7 +25,7 @@ file_list=(`find . -name *.java`)
 echo ${file_list[*]}
 file_content=`cat ${file_list[*]}|grep -v '//'|tr '\r\n' ' '|sed 's/\"/\\\"/g'`
 cd ..
-prompt=`cat ./prompt/prompt_for_test_suite.txt|sed ':a;N;$!ba;s/\n/\\\n/g'|sed 's/\"/\\\"/g'`
+prompt=`cat ./script/prompt.txt|sed ':a;N;$!ba;s/\n/\\\n/g'|sed 's/\"/\\\"/g'`
 echo "${prompt}"
 #convert_code "$prompt" "$req_file" 
 convert_code "$prompt" "$file_content"|sed -e 's/\\n/\n/g' -e 's/\\\"/\"/g' -e 's/\\t/	/g'
