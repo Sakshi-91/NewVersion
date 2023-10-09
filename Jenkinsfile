@@ -4,6 +4,7 @@ pipeline {
         stage("Generate Files") {
             steps {
                 echo "Generating Java Files from AI foundation model"
+		    bat "git pull origin main"
  	        //bat "sh -x ./script/codeconvertor.sh"
  
             }
