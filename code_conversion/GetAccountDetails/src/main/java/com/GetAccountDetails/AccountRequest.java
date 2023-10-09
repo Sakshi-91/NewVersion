@@ -12,4 +12,3 @@ public class AccountRequest {
         this.accountNumber = accountNumber;
     }
 }
-ECHO is on.
