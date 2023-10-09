@@ -3,43 +3,23 @@ pipeline {
     stages {
         stage("Generate Files") {
             steps {
-                echo "Generating Java Files from ChatGPT API calls"
-        	// bat "cd script"
-
-		   
-    //    withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']) {  
-          
-      //      bat "sh -x ./script/codeconvertor.sh WebApplication2/WebApplication2/Program.cs"
- //   bat "sh -x ./script/codeconvertor.sh GetAccountDetails/GetAccountDetails/AccountDetails.cs"
- //    bat "sh -x ./script/codeconvertor.sh"
-//      }
-		  
-	//	sh "git stash"  
-	//	sh "git checkout main"
-          //      sh "git stash pop" 
-		    //sh "git checkout origin/main"
-		//sh "chmod -r 755 *"
-        	//sh "chmod 755 /var/lib/jenkins/workspace/GetDetails/script/codeconvertor.sh"
-                //sh "./script/codeconvertor.sh WebApplication2/WebApplication2/Program.cs"
-                 
+                echo "Generating Java Files from AI foundation model"
+ 		//    bat "sh -x ./script/codeconvertor.sh"
+ 
             }
         }
 
         stage("Commit Generated Files") {
             steps {
 		echo "Staging the generated files and commiting in git"
-              //  bat "git stash"  
-		// bat "git checkout main"
-              //  bat "git stash pop"     
-		//   bat "git config --global user.email 'agrasaks.in.ibm.com'"
-		  //  bat "git config --global user.name 'Sakshi-Git1'"
-            //    bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/AccountRequest.java"
+              
+                //bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/AccountRequest.java"
 		//bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/AccountResponse.java"
 		//bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/Address.java"
 		//bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/GetAccountDetailsApplication.java"
 		//bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/WebService1.java"
 		//bat "git add ./code_conversion/GetAccountDetails/pom.xml"
-       // bat "git commit -m 'AIGeneratedFiles' || echo 'Commit failed. There is probably nothing to commit.'"
+                // bat "git commit -m 'AIGeneratedFiles' || echo 'Commit failed. There is probably nothing to commit.'"
             }
         }
 
@@ -49,7 +29,7 @@ pipeline {
 		     echo "Pushing to remote GitHub Repo"
 	          //   bat "git pull origin main"		
                   //   bat "git push -u origin main"
-		     //  bat "git push https://github.com/Sakshi-Git1/NewVersion.git HEAD:main"
+		  //  bat "git push https://github.com/Sakshi-Git1/NewVersion.git HEAD:main"
                // }
             }
         }
