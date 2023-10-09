@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage("Generate Files") {
             steps {
-                echo "Generating Java Files from ChatGPT API calls"
+                echo "Generating Test Suite project file from Foundation model"
           
-       bat "sh -x ./testsuitescript/codeconvertor.sh"
+                bat "sh -x ./testsuitescript/codeconvertor.sh"
       
                  
             }
@@ -15,8 +15,8 @@ pipeline {
             steps {
 		echo "Staging the generated files and commiting in git"
              
-                bat "git add ./Design.doc"
-                bat "git commit -m 'AIGeneratedFiles' || echo 'Commit failed. There is probably nothing to commit.'"
+          //  bat "git add ./Design.doc"
+          //  bat "git commit -m 'AIGeneratedFiles' || echo 'Commit failed. There is probably nothing to commit.'"
             }
         }
 
@@ -26,7 +26,7 @@ pipeline {
 		     echo "Pushing to remote GitHub Repo"
 	          //   bat "git pull origin main"		
                   //   bat "git push -u origin main"
-		       bat "git push https://github.com/Sakshi-Git1/NewVersion.git HEAD:main"
+		  //   bat "git push https://github.com/Sakshi-Git1/NewVersion.git HEAD:main"
                 }
             }
         }
