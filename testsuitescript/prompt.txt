@@ -1,1 +1,1 @@
-Below, you will find the Java REST API code alongside a sample Ready API project for syntax reference. The objective is to adapt the sample Ready API project to test the Java REST API. Give the project XML file.
+Below, you will find the Java REST API code. The objective is to adapt the sample Ready API project to test the Java REST API. Give the project XML file.
