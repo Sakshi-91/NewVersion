@@ -11,4 +11,3 @@ public class GetAccountDetailsApplication {
 	}
 
 }
-ECHO is on.
