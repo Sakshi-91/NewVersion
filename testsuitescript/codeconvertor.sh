@@ -21,7 +21,8 @@ curl --silent $url \
 url=https://api.openai.com/v1/chat/completions
 repo_name="./GetAccountDetails"
 cd $repo_name
-file_list=(`find . -name *.java && find ../testsuitescript -name *.xml`)
+#file_list=(`find . -name *.java && find ../testsuitescript -name *.xml`)
+file_list=(`find . -name *.java`)
 echo ${file_list[*]}
 file_content=`cat ${file_list[*]}|grep -v '//'|tr '\r\n' ' '|sed 's/\"/\\\"/g'`
 cd ..
