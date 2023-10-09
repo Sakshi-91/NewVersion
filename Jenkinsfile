@@ -14,8 +14,8 @@ pipeline {
             steps {
 		echo "Staging the generated files and commiting in git"
               
-                bat "sh echo -e '\n' >> ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/AccountRequest.java"
-	//	bat "echo ' '>> ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/AccountResponse.java"
+                bat "echo //end >> ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/AccountRequest.java"
+		bat "echo. >> ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/AccountResponse.java"
 	//	bat "echo ' '>> ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/Address.java"
 	//	bat "echo ' ' >> ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/GetAccountDetailsApplication.java"
 	//	bat "echo ' '>> ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/WebService1.java"
