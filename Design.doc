@@ -1,1 +1,40 @@
+Design Document
+
+Index:
+1. Overview
+2. Request Mapping
+3. Response Mappings
+4. API Request Message
+5. API Response Message
+6. Non-Functional Design
+7. Testing Considerations
+8. Security Aspects
+9. References
+
+Overview:
+The Address class represents a physical address with attributes such as first line, second line, country, and postal code. It provides methods to get and set these attributes.
+
+RequestMapping:
+None
+
+Response Mappings:
+None
+
+API Request Message:
+None
+
+API Response Message:
+None
+
+Non-Functional Design:
+None
+
+Testing Considerations:
+None
+
+Security Aspects:
+None
+
+References:
+None
 
