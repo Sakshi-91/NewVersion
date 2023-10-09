@@ -28,8 +28,8 @@ pipeline {
 		bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/GetAccountDetailsApplication.java"
 		bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/WebService1.java"
 		bat "git add ./code_conversion/GetAccountDetails/pom.xml"
-		bat "git commit --amend -m 'AIGeneratedFiles'"
-		//bat "git commit -m 'AIGeneratedFiles' --force"
+		//bat "git commit --amend -m 'AIGeneratedFiles'"
+		bat "git commit -m 'AIGeneratedFiles'"
                 //bat "git commit -m 'AIGeneratedFiles' || echo 'Commit failed. There is probably nothing to commit.'"
             }
         }
