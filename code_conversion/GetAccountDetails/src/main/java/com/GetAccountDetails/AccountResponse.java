@@ -54,3 +54,4 @@ public class AccountResponse {
         this.address = address;
     }
 }
+' '
