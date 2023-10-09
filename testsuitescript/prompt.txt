@@ -1,1 +1,1 @@
-Below are the java files for the rest API, give me a test pack project in xml format to validate the java rest api code using soap UI.
+Below, you will find the Java REST API code alongside a sample Ready API project for syntax reference. The objective is to adapt the sample Ready API project to test the Java REST API.
