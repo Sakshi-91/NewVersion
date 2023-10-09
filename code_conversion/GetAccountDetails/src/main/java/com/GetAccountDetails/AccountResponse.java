@@ -54,4 +54,3 @@ public class AccountResponse {
         this.address = address;
     }
 }
-ECHO is on.
