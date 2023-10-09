@@ -4,7 +4,7 @@ pipeline {
         stage("Generate Files") {
             steps {
                 echo "Generating Java Files from AI foundation model"
-		    bat "git pull --rebase origin main"
+		    //bat "git pull --rebase origin main"
  	        //bat "sh -x ./script/codeconvertor.sh"
  
             }
@@ -37,10 +37,10 @@ pipeline {
             steps {
                withCredentials([gitUsernamePassword(credentialsId: 'PAT_Jenk', gitToolName: 'Default')]) {
 		     echo "Pushing to remote GitHub Repo"
-	          //   bat "git pull origin main"		
-                 //  bat "git push origin main"
+	          bat "git pull origin main"		
+                  bat "git push origin main"
 //bat "git push --set-upstream origin main"
-		       bat "git push https://github.com/Sakshi-Git1/NewVersion.git HEAD:main"
+		     //  bat "git push https://github.com/Sakshi-Git1/NewVersion.git HEAD:main"
                 }
             }
         }
