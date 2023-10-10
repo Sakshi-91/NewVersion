@@ -1,69 +1,9 @@
+./GetAccountDetails/src/main/java/com/GetAccountDetails/AccountRequest.java ./GetAccountDetails/src/main/java/com/GetAccountDetails/AccountResponse.java ./GetAccountDetails/src/main/java/com/GetAccountDetails/Address.java ./GetAccountDetails/src/main/java/com/GetAccountDetails/GetAccountDetailsApplication.java ./GetAccountDetails/src/main/java/com/GetAccountDetails/WebService1.java
 {
-  "id": "chatcmpl-880ttX13M2UEG6nqIta3gxjoWkOkO",
-  "object": "chat.completion",
-  "created": 1696920777,
-  "model": "gpt-3.5-turbo-0613",
-  "choices": [
-    {
-      "index": 0,
-      "message": {
-        "role": "assistant",
-        "content": "Design.doc
-
-Header:
-[Your Company Name]
-[Project Name]
-[Document Title: Design]
-
-Footer:
-Page [Page Number]
-
-Index:
-1. Overview
-2. Request Mapping
-3. Response Mappings
-4. API Request Message
-5. API Response Message
-6. Non-Functional Design
-7. Testing Considerations
-8. Security Aspects
-9. References
-
-1. Overview:
-This section provides a high-level overview of the Java code and its purpose within the project.
-
-2. Request Mapping:
-This section describes the different request mappings implemented in the Java code, including the URL paths and corresponding methods.
-
-3. Response Mappings:
-This section outlines the different response mappings used in the Java code, including the HTTP status codes and corresponding response bodies.
-
-4. API Request Message:
-This section details the structure and format of the API request message, including any required headers, parameters, and body elements.
-
-5. API Response Message:
-This section details the structure and format of the API response message, including any headers, status codes, and response body elements.
-
-6. Non-Functional Design:
-This section covers the non-functional design considerations for the Java code, such as performance, scalability, and maintainability.
-
-7. Testing Considerations:
-This section outlines the testing approach and considerations for the Java code, including unit testing, integration testing, and any specific test cases to be considered.
-
-8. Security Aspects:
-This section discusses the security aspects of the Java code, including authentication, authorization, and any security measures implemented.
-
-9. References:
-This section lists any references or resources used during the design process, such as external documentation, libraries, or frameworks.
-
-Please note that the above sections are just placeholders and need to be filled with the relevant content specific to your Java code."
-      },
-      "finish_reason": "stop"
+    "error": {
+        "message": "We could not parse the JSON body of your request. (HINT: This likely means you aren't using your HTTP library correctly. The OpenAI API expects a JSON payload, but what was sent was not valid JSON. If you have trouble figuring out how to fix this, please contact us through our help center at help.openai.com.)",
+        "type": "invalid_request_error",
+        "param": null,
+        "code": null
     }
-  ],
-  "usage": {
-    "prompt_tokens": 61,
-    "completion_tokens": 361,
-    "total_tokens": 422
-  }
 }
