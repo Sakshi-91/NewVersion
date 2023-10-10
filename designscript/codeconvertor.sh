@@ -16,9 +16,10 @@ curl --silent $url \
 	            }" 
 }
 url=https://api.openai.com/v1/chat/completions
-repo_name="./code_conversion/"
+#repo_name="./code_conversion/"
+repo_name="./designscript/"
 cd $repo_name
-file_list=(`find . -name WebService1.java`)
+file_list=(`find . -name GetAccountDetails.xml`)
 echo ${file_list[*]}
 file_content=`cat ${file_list[*]}|grep -v '//'|tr '\r\n' ' '|sed 's/\"/\\\"/g'`
 cd "../designscript"
