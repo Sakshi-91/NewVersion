@@ -1,2 +1,77 @@
 ./GetAccountDetails/src/main/java/com/GetAccountDetails/WebService1.java
-{"error":{"code":503,"message":"Service Unavailable.","param":null,"type":"cf_service_unavailable"}}
+{
+  "id": "chatcmpl-881QIbA5472JsC9acvHkuretIAVo3",
+  "object": "chat.completion",
+  "created": 1696922786,
+  "model": "gpt-3.5-turbo-0613",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "# Design Document
+
+## Index
+- Overview
+- Request Mapping
+- Response Mappings
+- API Request Message
+- API Response Message
+- Non Functional Design
+- Testing Considerations
+- Security Aspects
+- References
+
+## Overview
+The `WebService1` class is a REST controller that handles the GET request for retrieving account details based on the account number. It sends a SOAP request to an external service and parses the SOAP response to create an `AccountResponse` object. The account details are then returned as a response.
+
+## Request Mapping
+- GET /GetAccountDetails/{accountNumber}
+- Path variable: accountNumber (String)
+
+## Response Mappings
+- Success: 200 OK with the `AccountResponse` object
+- Error: 500 Internal Server Error
+
+## API Request Message
+The API request is a GET request with the account number as a path variable.
+
+## API Response Message
+The API response is a JSON object containing the following fields:
+- agreementNumber (String)
+- agreementType (String)
+- balance (String)
+- address (Object)
+  - addressLine1 (String)
+  - addressLine2 (String)
+  - country (String)
+  - postalCode (String)
+- phone (String)
+
+## Non Functional Design
+- The controller uses Spring's `RestTemplate` to send the SOAP request and receive the SOAP response.
+- The SOAP request is constructed using a formatted XML string.
+- The SOAP response is parsed using the `DocumentBuilder` and `Document` classes from the `javax.xml.parsers` package.
+- The parsed response is used to create an `AccountResponse` object.
+
+## Testing Considerations
+- Unit tests should be written to test the functionality of the `getAccountDetails` method, including handling of different response statuses and parsing of the SOAP response.
+- Integration tests can be written to test the interaction between the controller and the external SOAP service.
+
+## Security Aspects
+- The controller does not have any security measures implemented. Additional security measures, such as authentication and authorization, should be implemented as per the application's requirements.
+
+## References
+- [Spring Framework Documentation](https://docs.spring.io/spring-framework/docs/current/reference/html/)
+- [Java XML Parsing Tutorial](https://www.baeldung.com/java-xml)
+- [Spring RestTemplate Documentation](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html)"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 795,
+    "completion_tokens": 495,
+    "total_tokens": 1290
+  }
+}
