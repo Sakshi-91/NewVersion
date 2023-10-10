@@ -1,63 +1,88 @@
 ./GetAccountDetails.xml
 {
-  "id": "chatcmpl-881e86EBOA7ROOxg8fMuXtpRINopP",
+  "id": "chatcmpl-881hzhGc4A5fSxSp7HdOI3BSNhpsp",
   "object": "chat.completion",
-  "created": 1696923644,
+  "created": 1696923883,
   "model": "gpt-3.5-turbo-0613",
   "choices": [
     {
       "index": 0,
       "message": {
         "role": "assistant",
-        "content": "Design Document
+        "content": "# Design Document - REST API
 
-Index:
-1. Overview
-2. Request Mapping
-3. Response Mappings
-4. API Request Message
-5. API Response Message
-6. Non Functional Design
-7. Testing Considerations
-8. Security Aspects
-9. References
+## Index
+- Overview
+- Request Mapping
+- Response Mappings
+- API Request Message
+- API Response Message
+- Non-Functional Design
+- Testing Considerations
+- Security Aspects
+- References
 
-Overview:
-This design document describes the design of a Java code that implements a web service for retrieving account details. The code uses a WSDL (Web Services Description Language) file to define the structure of the request and response messages.
+## Overview
+This REST API is based on the given XML WSDL definition. It provides functionality to retrieve account details.
 
-RequestMapping:
-The web service exposes a single operation called "GetAccountDetails". This operation takes an input parameter called "AccountNumber" and returns an output parameter called "GetAccountDetailsResult".
+## Request Mapping
+The API supports a single request mapping:
 
-Response Mappings:
-The "GetAccountDetailsResult" parameter is of type "AccountResponse", which is a complex type containing multiple sub-elements. These sub-elements include "AccountNumber", "AccountType", "AccountBalance", "Phone", and "Address".
+- **GET /account-details/{accountNumber}**: Retrieves the account details for the specified account number.
 
-API Request Message:
-The API request message is defined by the "GetAccountDetails" element in the WSDL file. It contains a single element called "AccountNumber" of type "string".
+## Response Mappings
+The API responds with a JSON object containing the following fields:
 
-API Response Message:
-The API response message is defined by the "GetAccountDetailsResponse" element in the WSDL file. It contains a single element called "GetAccountDetailsResult" of type "AccountResponse".
+- **accountNumber**: The account number.
+- **accountType**: The type of the account.
+- **accountBalance**: The current balance of the account.
+- **phone**: The phone number associated with the account.
+- **address**: The address associated with the account, including the first line, second line, country, and postal code.
 
-Non Functional Design:
-The non-functional design considerations for this code include performance, scalability, and maintainability. The code should be optimized for efficient execution, capable of handling a large number of concurrent requests, and easy to maintain and extend in the future.
+## API Request Message
+The API request message is sent as a GET request to the specified endpoint. The account number is provided as a path parameter.
 
-Testing Considerations:
-To ensure the functionality and correctness of the code, thorough testing should be performed. This includes unit testing, integration testing, and end-to-end testing. Test cases should cover different scenarios and edge cases to validate the behavior of the code.
+## API Response Message
+The API response message is a JSON object containing the account details. The response structure is as follows:
 
-Security Aspects:
-Security is an important aspect of web services. The code should implement appropriate security measures to protect sensitive data and prevent unauthorized access. This may include authentication, encryption, and access control mechanisms.
+```json
+{
+  "accountNumber": "string",
+  "accountType": "string",
+  "accountBalance": "string",
+  "phone": "string",
+  "address": {
+    "firstLine": "string",
+    "secondLine": "string",
+    "country": "string",
+    "postalCode": "string"
+  }
+}
+```
 
-References:
-1. WSDL Specification: [link]
-2. Java Web Services Tutorial: [link]
-3. SOAP Protocol Specification: [link]
-4. Java Documentation: [link]"
+## Non-Functional Design
+The REST API is designed to be scalable and performant. It follows RESTful principles and adheres to best practices for API design.
+
+## Testing Considerations
+To test the API, the following scenarios should be considered:
+
+1. Valid account number: Test the API with a valid account number and verify that the correct account details are returned.
+2. Invalid account number: Test the API with an invalid account number and verify that an appropriate error message is returned.
+3. Performance testing: Test the API under high load to ensure it can handle a large number of concurrent requests without degradation in performance.
+
+## Security Aspects
+The REST API should be secured using appropriate authentication and authorization mechanisms to ensure that only authorized users can access the account details.
+
+## References
+- [REST API Design Best Practices](https://restfulapi.net/)
+- [API Security Best Practices](https://www.owasp.org/index.php/REST_Security_Cheat_Sheet)"
       },
       "finish_reason": "stop"
     }
   ],
   "usage": {
-    "prompt_tokens": 940,
-    "completion_tokens": 452,
-    "total_tokens": 1392
+    "prompt_tokens": 945,
+    "completion_tokens": 522,
+    "total_tokens": 1467
   }
 }
