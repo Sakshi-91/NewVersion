@@ -1,77 +1,63 @@
-./GetAccountDetails/src/main/java/com/GetAccountDetails/WebService1.java
+./GetAccountDetails.xml
 {
-  "id": "chatcmpl-881QIbA5472JsC9acvHkuretIAVo3",
+  "id": "chatcmpl-881e86EBOA7ROOxg8fMuXtpRINopP",
   "object": "chat.completion",
-  "created": 1696922786,
+  "created": 1696923644,
   "model": "gpt-3.5-turbo-0613",
   "choices": [
     {
       "index": 0,
       "message": {
         "role": "assistant",
-        "content": "# Design Document
+        "content": "Design Document
 
-## Index
-- Overview
-- Request Mapping
-- Response Mappings
-- API Request Message
-- API Response Message
-- Non Functional Design
-- Testing Considerations
-- Security Aspects
-- References
+Index:
+1. Overview
+2. Request Mapping
+3. Response Mappings
+4. API Request Message
+5. API Response Message
+6. Non Functional Design
+7. Testing Considerations
+8. Security Aspects
+9. References
 
-## Overview
-The `WebService1` class is a REST controller that handles the GET request for retrieving account details based on the account number. It sends a SOAP request to an external service and parses the SOAP response to create an `AccountResponse` object. The account details are then returned as a response.
+Overview:
+This design document describes the design of a Java code that implements a web service for retrieving account details. The code uses a WSDL (Web Services Description Language) file to define the structure of the request and response messages.
 
-## Request Mapping
-- GET /GetAccountDetails/{accountNumber}
-- Path variable: accountNumber (String)
+RequestMapping:
+The web service exposes a single operation called "GetAccountDetails". This operation takes an input parameter called "AccountNumber" and returns an output parameter called "GetAccountDetailsResult".
 
-## Response Mappings
-- Success: 200 OK with the `AccountResponse` object
-- Error: 500 Internal Server Error
+Response Mappings:
+The "GetAccountDetailsResult" parameter is of type "AccountResponse", which is a complex type containing multiple sub-elements. These sub-elements include "AccountNumber", "AccountType", "AccountBalance", "Phone", and "Address".
 
-## API Request Message
-The API request is a GET request with the account number as a path variable.
+API Request Message:
+The API request message is defined by the "GetAccountDetails" element in the WSDL file. It contains a single element called "AccountNumber" of type "string".
 
-## API Response Message
-The API response is a JSON object containing the following fields:
-- agreementNumber (String)
-- agreementType (String)
-- balance (String)
-- address (Object)
-  - addressLine1 (String)
-  - addressLine2 (String)
-  - country (String)
-  - postalCode (String)
-- phone (String)
+API Response Message:
+The API response message is defined by the "GetAccountDetailsResponse" element in the WSDL file. It contains a single element called "GetAccountDetailsResult" of type "AccountResponse".
 
-## Non Functional Design
-- The controller uses Spring's `RestTemplate` to send the SOAP request and receive the SOAP response.
-- The SOAP request is constructed using a formatted XML string.
-- The SOAP response is parsed using the `DocumentBuilder` and `Document` classes from the `javax.xml.parsers` package.
-- The parsed response is used to create an `AccountResponse` object.
+Non Functional Design:
+The non-functional design considerations for this code include performance, scalability, and maintainability. The code should be optimized for efficient execution, capable of handling a large number of concurrent requests, and easy to maintain and extend in the future.
 
-## Testing Considerations
-- Unit tests should be written to test the functionality of the `getAccountDetails` method, including handling of different response statuses and parsing of the SOAP response.
-- Integration tests can be written to test the interaction between the controller and the external SOAP service.
+Testing Considerations:
+To ensure the functionality and correctness of the code, thorough testing should be performed. This includes unit testing, integration testing, and end-to-end testing. Test cases should cover different scenarios and edge cases to validate the behavior of the code.
 
-## Security Aspects
-- The controller does not have any security measures implemented. Additional security measures, such as authentication and authorization, should be implemented as per the application's requirements.
+Security Aspects:
+Security is an important aspect of web services. The code should implement appropriate security measures to protect sensitive data and prevent unauthorized access. This may include authentication, encryption, and access control mechanisms.
 
-## References
-- [Spring Framework Documentation](https://docs.spring.io/spring-framework/docs/current/reference/html/)
-- [Java XML Parsing Tutorial](https://www.baeldung.com/java-xml)
-- [Spring RestTemplate Documentation](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html)"
+References:
+1. WSDL Specification: [link]
+2. Java Web Services Tutorial: [link]
+3. SOAP Protocol Specification: [link]
+4. Java Documentation: [link]"
       },
       "finish_reason": "stop"
     }
   ],
   "usage": {
-    "prompt_tokens": 795,
-    "completion_tokens": 495,
-    "total_tokens": 1290
+    "prompt_tokens": 940,
+    "completion_tokens": 452,
+    "total_tokens": 1392
   }
 }
