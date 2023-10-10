@@ -1,1 +1,2 @@
 Below, you will find the wsdl file GetAccountDetails. The objective is to create the Ready API project to test the Java REST API. Give the Ready API project XML file.
+Base URL of the REST API: http://localhost:8086/GetAccountDetails/{1234}
