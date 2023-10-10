@@ -1,16 +1,6 @@
-Design Document: REST API
+# Design Document for REST API
 
-Header:
-- [Company Logo]
-- [Company Name]
-- [Project Name]
-- [Date]
-
-Footer:
-- [Page Number]
-
-Table of Contents:
-- Index
+## Index
 - Overview
 - Request Mapping
 - Response Mappings
@@ -21,87 +11,54 @@ Table of Contents:
 - Security Aspects
 - References
 
-Index:
-- Overview
-- Request Mapping
-- Response Mappings
-- API Request Message
-- API Response Message
-- Non Functional Design
-- Testing Considerations
-- Security Aspects
-- References
+## Overview
+This design document describes the REST API based on the provided XML WSDL definition. The API allows clients to retrieve account details.
 
-Overview:
-The REST API is designed to provide account details based on the account number provided. It uses the SOAP web service definition to define the data types and message structure.
+## Request Mapping
+The API accepts a GET request to the following endpoint:
+```
+/accounts/{accountNumber}
+```
+Where `accountNumber` is the account number of the requested account.
 
-Request Mapping:
-- Endpoint: /getAccountDetails
-- Method: POST
-- Request Body:
-  - AccountNumber: string (required)
+## Response Mappings
+The API responds with a JSON object containing the following fields:
+- `accountNumber` (string): The account number.
+- `accountType` (string): The type of the account.
+- `accountBalance` (string): The balance of the account.
+- `phone` (string): The phone number associated with the account.
+- `address` (object): An object representing the address of the account holder, with the following fields:
+  - `firstLine` (string): The first line of the address.
+  - `secondLine` (string): The second line of the address.
+  - `country` (string): The country of the address.
+  - `postalCode` (string): The postal code of the address.
 
-Response Mappings:
-- Success Response:
-  - Status Code: 200 OK
-  - Response Body:
-    - AccountNumber: string
-    - AccountType: string
-    - AccountBalance: string
-    - Phone: string
-    - Address:
-      - FirstLine: string
-      - SecondLine: string
-      - Country: string
-      - PostalCode: string
+## API Request Message
+The API expects a GET request to the endpoint `/accounts/{accountNumber}`.
 
-API Request Message:
-- Name: GetAccountDetails
-- Parameters:
-  - AccountNumber: string
+## API Response Message
+The API responds with a JSON object containing the account details as described in the \"Response Mappings\" section.
 
-API Response Message:
-- Name: GetAccountDetailsResponse
-- Parameters:
-  - GetAccountDetailsResult: AccountResponse
+## Non Functional Design
+The API should adhere to the following non-functional requirements:
+- Performance: The API should be able to handle a high volume of concurrent requests efficiently.
+- Scalability: The API should be designed to scale horizontally to accommodate increasing traffic.
+- Reliability: The API should be highly available and resilient to failures.
+- Security: The API should implement appropriate security measures to protect sensitive data.
 
-Non Functional Design:
-- Performance:
-  - The API should be able to handle a high volume of concurrent requests.
-  - Caching mechanisms should be implemented to improve response times.
-- Scalability:
-  - The API should be designed to scale horizontally to handle increased traffic.
-- Reliability:
-  - Appropriate error handling and error messages should be implemented.
-- Availability:
-  - The API should have high availability to ensure it is accessible at all times.
-- Security:
-  - Authentication and authorization mechanisms should be implemented to secure the API.
-  - Input validation should be performed to prevent security vulnerabilities.
+## Testing Considerations
+The following considerations should be taken into account when testing the API:
+- Unit Testing: Each component of the API should be thoroughly tested in isolation.
+- Integration Testing: The API should be tested in conjunction with other systems it interacts with.
+- Performance Testing: The API should be tested under various load conditions to ensure it meets performance requirements.
+- Security Testing: The API should be tested for vulnerabilities and weaknesses in its security measures.
 
-Testing Considerations:
-- Unit Testing:
-  - Test each component and function of the API to ensure they are working correctly.
-- Integration Testing:
-  - Test the integration between different components of the API.
-- Performance Testing:
-  - Test the performance and scalability of the API under high load conditions.
-- Security Testing:
-  - Test the API for any potential security vulnerabilities.
-- Error Handling Testing:
-  - Test the API's error handling mechanisms to ensure they are working correctly.
+## Security Aspects
+The API should implement the following security measures:
+- Authentication: Clients should be required to authenticate before accessing the API.
+- Authorization: Clients should only be able to access the account details they are authorized for.
+- Encryption: All sensitive data should be encrypted during transmission.
 
-Security Aspects:
-- Authentication:
-  - Implement authentication mechanisms such as OAuth or JWT.
-- Authorization:
-  - Implement authorization mechanisms to control access to the API.
-- Input Validation:
-  - Validate and sanitize input data to prevent security vulnerabilities such as SQL injection or cross-site scripting attacks.
-- Data Encryption:
-  - Encrypt sensitive data to ensure its confidentiality.
-- Audit Logging:
-  - Implement logging mechanisms to track API usage and detect any suspicious activities.
-
-References:
-- [List of references used in the design process]"
+## References
+- [XML WSDL Definition](link-to-xml-wsdl-definition)
+- [API Documentation](link-to-api-documentation)"
