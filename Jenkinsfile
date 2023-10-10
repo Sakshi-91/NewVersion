@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo "Generating Java Files from AI foundation model"
 		    //bat "git pull --rebase origin main"
- 	        bat "sh -x ./script/codeconvertor.sh"
+ 	      //  bat "sh -x ./script/codeconvertor.sh"
  
             }
         }
@@ -14,22 +14,22 @@ pipeline {
             steps {
 		echo "Staging the generated files and commiting in git"
               
-          //      bat "echo. >> ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/AccountRequest.java"
-	//	bat "echo. >> ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/AccountResponse.java"
-	//	bat "echo. >> ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/Address.java"
-	//	bat "echo. >> ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/GetAccountDetailsApplication.java"
-	//	bat "echo. >> ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/WebService1.java"
-	//	bat "echo. >> ./code_conversion/GetAccountDetails/pom.xml"
+               bat "echo. >> ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/AccountRequest.java"
+		bat "echo. >> ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/AccountResponse.java"
+		bat "echo. >> ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/Address.java"
+		bat "echo. >> ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/GetAccountDetailsApplication.java"
+		bat "echo. >> ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/WebService1.java"
+		bat "echo. >> ./code_conversion/GetAccountDetails/pom.xml"
 		
 
-	//	bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/AccountRequest.java"
-	//	bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/AccountResponse.java"
-	//	bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/Address.java"
-	//	bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/GetAccountDetailsApplication.java"
-	//	bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/WebService1.java"
-	//	bat "git add ./code_conversion/GetAccountDetails/pom.xml"
+		bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/AccountRequest.java"
+		bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/AccountResponse.java"
+		bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/Address.java"
+		bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/GetAccountDetailsApplication.java"
+		bat "git add ./code_conversion/GetAccountDetails/src/main/java/com/GetAccountDetails/WebService1.java"
+		bat "git add ./code_conversion/GetAccountDetails/pom.xml"
 		//bat "git commit --amend -m 'AIGeneratedFiles'"
-	//	bat "git commit -m 'AIGeneratedFiles'"
+		bat "git commit -m 'AIGeneratedFiles'"
                 //bat "git commit -m 'AIGeneratedFiles' || echo 'Commit failed. There is probably nothing to commit.'"
             }
         }
@@ -41,7 +41,7 @@ pipeline {
 	      //    bat "git pull --rebase origin main"		
                 //  bat "git push origin main"
 //bat "git push --set-upstream origin main"
-		//  bat "git push https://github.com/Sakshi-Git1/NewVersion.git HEAD:main"
+		  bat "git push https://github.com/Sakshi-Git1/NewVersion.git HEAD:main"
                 }
             }
         }
@@ -49,8 +49,8 @@ pipeline {
         stage("Sync Repository") {
             steps {
                   echo "Sync working directory with remote GitHub Repo"
-            //      bat "git pull origin main"
-		//  bat "git status"	 
+                 bat "git pull origin main"
+	  bat "git status"	 
             }
         }
         stage('Build Docker image') {
