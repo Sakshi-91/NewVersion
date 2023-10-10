@@ -1,88 +1,107 @@
-./GetAccountDetails.xml
-{
-  "id": "chatcmpl-881hzhGc4A5fSxSp7HdOI3BSNhpsp",
-  "object": "chat.completion",
-  "created": 1696923883,
-  "model": "gpt-3.5-turbo-0613",
-  "choices": [
-    {
-      "index": 0,
-      "message": {
-        "role": "assistant",
-        "content": "# Design Document - REST API
+Design Document: REST API
 
-## Index
+Header:
+- [Company Logo]
+- [Company Name]
+- [Project Name]
+- [Date]
+
+Footer:
+- [Page Number]
+
+Table of Contents:
+- Index
 - Overview
 - Request Mapping
 - Response Mappings
 - API Request Message
 - API Response Message
-- Non-Functional Design
+- Non Functional Design
 - Testing Considerations
 - Security Aspects
 - References
 
-## Overview
-This REST API is based on the given XML WSDL definition. It provides functionality to retrieve account details.
+Index:
+- Overview
+- Request Mapping
+- Response Mappings
+- API Request Message
+- API Response Message
+- Non Functional Design
+- Testing Considerations
+- Security Aspects
+- References
 
-## Request Mapping
-The API supports a single request mapping:
+Overview:
+The REST API is designed to provide account details based on the account number provided. It uses the SOAP web service definition to define the data types and message structure.
 
-- **GET /account-details/{accountNumber}**: Retrieves the account details for the specified account number.
+Request Mapping:
+- Endpoint: /getAccountDetails
+- Method: POST
+- Request Body:
+  - AccountNumber: string (required)
 
-## Response Mappings
-The API responds with a JSON object containing the following fields:
+Response Mappings:
+- Success Response:
+  - Status Code: 200 OK
+  - Response Body:
+    - AccountNumber: string
+    - AccountType: string
+    - AccountBalance: string
+    - Phone: string
+    - Address:
+      - FirstLine: string
+      - SecondLine: string
+      - Country: string
+      - PostalCode: string
 
-- **accountNumber**: The account number.
-- **accountType**: The type of the account.
-- **accountBalance**: The current balance of the account.
-- **phone**: The phone number associated with the account.
-- **address**: The address associated with the account, including the first line, second line, country, and postal code.
+API Request Message:
+- Name: GetAccountDetails
+- Parameters:
+  - AccountNumber: string
 
-## API Request Message
-The API request message is sent as a GET request to the specified endpoint. The account number is provided as a path parameter.
+API Response Message:
+- Name: GetAccountDetailsResponse
+- Parameters:
+  - GetAccountDetailsResult: AccountResponse
 
-## API Response Message
-The API response message is a JSON object containing the account details. The response structure is as follows:
+Non Functional Design:
+- Performance:
+  - The API should be able to handle a high volume of concurrent requests.
+  - Caching mechanisms should be implemented to improve response times.
+- Scalability:
+  - The API should be designed to scale horizontally to handle increased traffic.
+- Reliability:
+  - Appropriate error handling and error messages should be implemented.
+- Availability:
+  - The API should have high availability to ensure it is accessible at all times.
+- Security:
+  - Authentication and authorization mechanisms should be implemented to secure the API.
+  - Input validation should be performed to prevent security vulnerabilities.
 
-```json
-{
-  "accountNumber": "string",
-  "accountType": "string",
-  "accountBalance": "string",
-  "phone": "string",
-  "address": {
-    "firstLine": "string",
-    "secondLine": "string",
-    "country": "string",
-    "postalCode": "string"
-  }
-}
-```
+Testing Considerations:
+- Unit Testing:
+  - Test each component and function of the API to ensure they are working correctly.
+- Integration Testing:
+  - Test the integration between different components of the API.
+- Performance Testing:
+  - Test the performance and scalability of the API under high load conditions.
+- Security Testing:
+  - Test the API for any potential security vulnerabilities.
+- Error Handling Testing:
+  - Test the API's error handling mechanisms to ensure they are working correctly.
 
-## Non-Functional Design
-The REST API is designed to be scalable and performant. It follows RESTful principles and adheres to best practices for API design.
+Security Aspects:
+- Authentication:
+  - Implement authentication mechanisms such as OAuth or JWT.
+- Authorization:
+  - Implement authorization mechanisms to control access to the API.
+- Input Validation:
+  - Validate and sanitize input data to prevent security vulnerabilities such as SQL injection or cross-site scripting attacks.
+- Data Encryption:
+  - Encrypt sensitive data to ensure its confidentiality.
+- Audit Logging:
+  - Implement logging mechanisms to track API usage and detect any suspicious activities.
 
-## Testing Considerations
-To test the API, the following scenarios should be considered:
-
-1. Valid account number: Test the API with a valid account number and verify that the correct account details are returned.
-2. Invalid account number: Test the API with an invalid account number and verify that an appropriate error message is returned.
-3. Performance testing: Test the API under high load to ensure it can handle a large number of concurrent requests without degradation in performance.
-
-## Security Aspects
-The REST API should be secured using appropriate authentication and authorization mechanisms to ensure that only authorized users can access the account details.
-
-## References
-- [REST API Design Best Practices](https://restfulapi.net/)
-- [API Security Best Practices](https://www.owasp.org/index.php/REST_Security_Cheat_Sheet)"
-      },
-      "finish_reason": "stop"
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 945,
-    "completion_tokens": 522,
-    "total_tokens": 1467
-  }
-}
+References:
+- [List of references used in the design process]"
