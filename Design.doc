@@ -1,64 +1,58 @@
-# Design Document for REST API
+Design Document
 
-## Index
-- Overview
-- Request Mapping
-- Response Mappings
-- API Request Message
-- API Response Message
-- Non Functional Design
-- Testing Considerations
-- Security Aspects
-- References
+Index:
+1. Overview
+2. Request Mapping
+3. Response Mappings
+4. API Request Message
+5. API Response Message
+6. Non-Functional Design
+7. Testing Considerations
+8. Security Aspects
+9. References
 
-## Overview
-This design document describes the REST API based on the provided XML WSDL definition. The API allows clients to retrieve account details.
+Header:
+[Your Company Logo]
+[Document Title]
+[Date]
 
-## Request Mapping
-The API accepts a GET request to the following endpoint:
-```
-/accounts/{accountNumber}
-```
-Where `accountNumber` is the account number of the requested account.
+Footer:
+[Page Number]
 
-## Response Mappings
-The API responds with a JSON object containing the following fields:
-- `accountNumber` (string): The account number.
-- `accountType` (string): The type of the account.
-- `accountBalance` (string): The balance of the account.
-- `phone` (string): The phone number associated with the account.
-- `address` (object): An object representing the address of the account holder, with the following fields:
-  - `firstLine` (string): The first line of the address.
-  - `secondLine` (string): The second line of the address.
-  - `country` (string): The country of the address.
-  - `postalCode` (string): The postal code of the address.
+1. Overview:
+The XML WSDL definition provided describes a web service called \"WebService1\" that exposes a SOAP API. The API allows clients to retrieve account details by providing an account number. The response includes various account information such as account number, account type, account balance, phone number, and address.
 
-## API Request Message
-The API expects a GET request to the endpoint `/accounts/{accountNumber}`.
+2. Request Mapping:
+The API supports a single operation called \"GetAccountDetails\". It expects a request message named \"GetAccountDetailsSoapIn\" which includes a single parameter \"AccountNumber\" of type string.
 
-## API Response Message
-The API responds with a JSON object containing the account details as described in the \"Response Mappings\" section.
+3. Response Mappings:
+The API returns a response message named \"GetAccountDetailsSoapOut\" which includes a single element \"GetAccountDetailsResult\" of type \"AccountResponse\". The \"AccountResponse\" complex type includes sub-elements for account number, account type, account balance, phone number, and address.
 
-## Non Functional Design
-The API should adhere to the following non-functional requirements:
-- Performance: The API should be able to handle a high volume of concurrent requests efficiently.
-- Scalability: The API should be designed to scale horizontally to accommodate increasing traffic.
-- Reliability: The API should be highly available and resilient to failures.
-- Security: The API should implement appropriate security measures to protect sensitive data.
+4. API Request Message:
+The API request message \"GetAccountDetailsSoapIn\" includes a single parameter \"AccountNumber\" of type string. This parameter represents the account number for which the details are requested.
 
-## Testing Considerations
-The following considerations should be taken into account when testing the API:
-- Unit Testing: Each component of the API should be thoroughly tested in isolation.
-- Integration Testing: The API should be tested in conjunction with other systems it interacts with.
-- Performance Testing: The API should be tested under various load conditions to ensure it meets performance requirements.
-- Security Testing: The API should be tested for vulnerabilities and weaknesses in its security measures.
+5. API Response Message:
+The API response message \"GetAccountDetailsSoapOut\" includes a single element \"GetAccountDetailsResult\" of type \"AccountResponse\". The \"AccountResponse\" complex type includes sub-elements for account number, account type, account balance, phone number, and address.
 
-## Security Aspects
-The API should implement the following security measures:
-- Authentication: Clients should be required to authenticate before accessing the API.
-- Authorization: Clients should only be able to access the account details they are authorized for.
-- Encryption: All sensitive data should be encrypted during transmission.
+6. Non-Functional Design:
+The provided XML WSDL definition does not include specific information about non-functional design aspects such as performance, scalability, or availability. These aspects should be considered during the implementation and deployment of the web service.
 
-## References
-- [XML WSDL Definition](link-to-xml-wsdl-definition)
-- [API Documentation](link-to-api-documentation)"
+7. Testing Considerations:
+When testing the web service, the following scenarios should be considered:
+- Valid request with a valid account number
+- Valid request with an invalid account number
+- Invalid request with missing account number
+- Invalid request with invalid data types
+
+8. Security Aspects:
+The provided XML WSDL definition does not include specific information about security aspects such as authentication or encryption. These aspects should be considered and implemented based on the specific requirements and security policies of the system.
+
+9. References:
+- [Reference 1]
+- [Reference 2]
+- [Reference 3]
+
+Footer:
+[Page Number]
+
+Note: This design document provides an overview of the provided XML WSDL definition and suggests sections for a design document. The actual content and details of the design document may vary based on specific project requirements and guidelines."
