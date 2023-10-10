@@ -63,10 +63,14 @@ awk -v RS="\`\`\`java" -v ORS="" -v ARR="${file_names[*]}" 'BEGIN {split(ARR,FIL
 for i in *.java
 do
 	pure_code=$(cat $i |awk -v RS="\`\`\`" NR==1'{print $0}')
-	echo "$pure_code"|grep 'package com.example' >/dev/null && echo "$pure_code"|sed 's/com.example/com/g' > $i
-	echo "$pure_code"|grep 'package com' >/dev/null && echo "$pure_code" > $i
-	echo "$pure_code"|grep "package ${repo_name}" && echo "$pure_code"|sed 's/package /package com./g' > $i
-	#echo start
+	#echo "$pure_code"|grep 'package com.example' >/dev/null && echo "$pure_code"|sed 's/com.example/com/g' > $i
+	#echo "$pure_code"|grep 'package com' >/dev/null && echo "$pure_code" > $i
+	#echo "$pure_code"|grep "package ${repo_name}" && echo "$pure_code"|sed 's/package /package com./g' > $i
+	echo "$pure_code"|grep 'package com.example' >/dev/null && echo "$pure_code"|sed 's/com.example/com/g'
+	echo "$pure_code"|grep 'package com' >/dev/null && echo "$pure_code"
+	echo "$pure_code"|grep "package ${repo_name}" && echo "$pure_code"|sed 's/package /package com./g'
+		
+ #echo start
 	proj=`cat $i|grep '^package '|awk -v RS='.' '$1 ~ ";" {print $0}'|tr ';' ' '`
 	#echo ${proj}
 	#echo end
@@ -83,7 +87,8 @@ pom=$(cat pom.xml|awk -v RS="\`\`\`" 'NR==1 {print $0}')
 #	git_cmd=$(cat pom.xml|awk -v RS="\`\`\`" 'NR>1 {print $0}')
 #	echo "$git_cmd"|awk -v FS="\`" '{print $2}'|grep '^git' > git.txt
 #fi
-echo "$pom" > pom.xml
+#echo "$pom" > pom.xml
+echo "$pom" 
 #mv *.java ../AccountDetails/src/main/java/com/example/accountdetails/
 #mv pom.xml ../AccountDetails/
 #proj=${repo_name}
@@ -107,8 +112,8 @@ public class ${proj}Application {
 ​
 }
 EOF
-mkdir -p "./${proj}/src/main/java/${grp}/${proj}/"
-mv *.java "./${proj}/src/main/java/${grp}/${proj}/"
-mv pom.xml "./${proj}/"
+#mkdir -p "./${proj}/src/main/java/${grp}/${proj}/"
+#mv *.java "./${proj}/src/main/java/${grp}/${proj}/"
+#mv pom.xml "./${proj}/"
 #spring init --build=maven --dependencies=web  ${repo_name}_java
 #bash git.txt
