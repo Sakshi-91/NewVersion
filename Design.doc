@@ -1,90 +1,72 @@
-# Design Document
+# Design Document for REST API
 
 ## Index
-
-1. Overview
-2. Request Mapping
-3. Response Mappings
-4. API Request Message
-5. API Response Message
-6. Non-Functional Design
-7. Testing Considerations
-8. Security Aspects
-9. References
+- Overview
+- Request Mapping
+- Response Mappings
+- API Request Message
+- API Response Message
+- Non Functional Design
+- Testing Considerations
+- Security Aspects
+- References
 
 ## Overview
-
-This document provides a design overview of the REST API based on the provided XML WSDL definition. The API allows users to retrieve account details based on an account number.
+The XML WSDL definition provided describes a SOAP-based web service called \"WebService1\" with an operation called \"GetAccountDetails\". This design document will outline the necessary steps to create a REST API based on this WSDL definition.
 
 ## Request Mapping
-
-- Endpoint: `/account-details`
-- HTTP Method: `GET`
-- Query Parameters:
-  - `accountNumber` (string, required): The account number for which to retrieve details.
+The REST API will have a single endpoint:
+- Endpoint: /api/account/{accountNumber}
+- Method: GET
 
 ## Response Mappings
-
-- Success Response (200 OK):
-  - Body:
-    - `accountNumber` (string): The account number.
-    - `accountType` (string): The type of the account.
-    - `accountBalance` (string): The current balance of the account.
-    - `phone` (string): The phone number associated with the account.
-    - `address` (object): The address details associated with the account.
-      - `firstLine` (string): The first line of the address.
-      - `secondLine` (string): The second line of the address.
-      - `country` (string): The country of the address.
-      - `postalCode` (string): The postal code of the address.
-
-- Error Response (400 Bad Request):
-  - Body:
-    - `message` (string): A descriptive error message.
+The REST API will return a JSON response with the following structure:
+```json
+{
+  \"accountNumber\": \"string\",
+  \"accountType\": \"string\",
+  \"accountBalance\": \"string\",
+  \"phone\": \"string\",
+  \"address\": {
+    \"firstLine\": \"string\",
+    \"secondLine\": \"string\",
+    \"country\": \"string\",
+    \"postalCode\": \"string\"
+  }
+}
+```
 
 ## API Request Message
-
-The API request message is based on the `GetAccountDetails` element in the XML WSDL definition. It consists of a single parameter:
-
-- `accountNumber` (string, required): The account number for which to retrieve details.
+The REST API will accept a GET request with the following parameters:
+- Path parameter:
+  - accountNumber: string (required) - The account number for which to retrieve details.
 
 ## API Response Message
+The REST API will return a JSON response with the following parameters:
+- accountNumber: string - The account number.
+- accountType: string - The type of the account.
+- accountBalance: string - The current balance of the account.
+- phone: string - The phone number associated with the account.
+- address:
+  - firstLine: string - The first line of the account holder's address.
+  - secondLine: string - The second line of the account holder's address.
+  - country: string - The country of the account holder's address.
+  - postalCode: string - The postal code of the account holder's address.
 
-The API response message is based on the `GetAccountDetailsResponse` element in the XML WSDL definition. It consists of the following fields:
-
-- `accountNumber` (string): The account number.
-- `accountType` (string): The type of the account.
-- `accountBalance` (string): The current balance of the account.
-- `phone` (string): The phone number associated with the account.
-- `address` (object): The address details associated with the account.
-  - `firstLine` (string): The first line of the address.
-  - `secondLine` (string): The second line of the address.
-  - `country` (string): The country of the address.
-  - `postalCode` (string): The postal code of the address.
-
-## Non-Functional Design
-
-- Scalability: The API should be designed to handle a large number of concurrent requests.
-- Performance: The API should have low latency and respond quickly to requests.
-- Reliability: The API should be highly available and resilient to failures.
-- Security: The API should implement authentication and authorization mechanisms to protect sensitive data.
-- Error Handling: The API should provide meaningful error messages and handle exceptions gracefully.
+## Non Functional Design
+- The REST API should follow RESTful design principles.
+- The API should be scalable and able to handle a large number of concurrent requests.
+- The API should be optimized for performance and response times.
 
 ## Testing Considerations
-
-- Unit Testing: Test each component of the API in isolation to ensure they function correctly.
-- Integration Testing: Test the API as a whole to ensure all components work together correctly.
-- Performance Testing: Test the API's performance under various load conditions to identify bottlenecks and optimize performance.
-- Security Testing: Test the API's security mechanisms to identify vulnerabilities and ensure data protection.
+- Unit tests should be created to test the functionality of the API.
+- Integration tests should be performed to ensure the API works correctly with the underlying system.
 
 ## Security Aspects
-
-- Authentication: Implement a secure authentication mechanism to verify the identity of API consumers.
-- Authorization: Implement access control mechanisms to restrict access to certain API endpoints based on user roles and permissions.
-- Data Encryption: Encrypt sensitive data in transit and at rest to protect it from unauthorized access.
-- Input Validation: Validate and sanitize all user inputs to prevent common security vulnerabilities such as SQL injection and cross-site scripting (XSS) attacks.
+- The API should implement authentication and authorization mechanisms to ensure only authorized users can access the API.
+- The API should use secure communication protocols (e.g., HTTPS) to protect data during transit.
 
 ## References
-
-- [XML WSDL Definition](link-to-wsdl-definition)
-- [REST API Best Practices](link-to-rest-api-best-practices)
-- [OWASP API Security Top 10](link-to-owasp-api-security-top-10)"
+- [XML WSDL Definition](<https://example.com/wsdl-definition>)
+- [RESTful API Design Principles](<https://restfulapi.net/>)
+- [REST API Security Best Practices](<https://www.owasp.org/index.php/REST_Security_Cheat_Sheet>)"
