@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="912a4283-7390-4418-ac18-95925550bd6c" created="3.48.0" activeEnvironment="Default environment" encryptionMode="Not encrypted" name="GetProductDetails" projectVersion="" updated="3.48.0 2023-08-30T15:44:06Z" resourceRoot="${projectDir}" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:RestService" id="9be85928-f904-4f3c-bbef-b48080e0a148" name="GetProductDetails" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings id="8b4c12d1-20c3-425d-a29f-6225c007116e"/>
+    <con:definitionCache type="TEXT" rootPart="GetAccountDetails.json">
+      <con:part>
+        <con:url>GetAccountDetails.json</con:url>
+        <con:content>{"openapi":"3.0.1","info":{"title":"GetAccountDetails","description":"","version":"1.0.0"},"servers":[{"url":"/"}],"paths":{"/ProductDetails/45677":{"description":"","get":{"description":"","responses":{"default":{"description":"Default response"}}},"parameters":[{"name":"productID","in":"path","required":true}]}}}</con:content>
+        <con:type>https://swagger.io/openapiv3/specification</con:type>
+      </con:part>
+    </con:definitionCache>
+    <con:endpoints>
+      <con:endpoint>http://52.205.167.212:8086</con:endpoint>
+    </con:endpoints>
+    <con:resource name="GetProductDetails" path="/ProductDetails/45677" id="3c062684-488b-4296-b744-8370c610a11b">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="Method 1" id="046aaaa6-ddad-46e2-ba08-be4bcf28fe9e" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:request name="Request 1" id="a6f608b3-f9b1-466a-a74b-2950f1b4993c" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>http://52.205.167.212:8086</con:endpoint>
+          <con:request/>
+          <con:originalUri>http://52.205.167.212/GetAccountDetails</con:originalUri>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+          <con:parameterOrder/>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:xmlTemplates/>
+    <con:parameters/>
+  </con:reporting>
+  <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to ReadyAPI functional tests
+
+// If hardcoding the token, uncomment and change line 5
+// token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new java.io.FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new java.io.PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:authRepository/>
+  <con:tags/>
+</con:soapui-project>
