@@ -1,72 +1,122 @@
-# Design Document for REST API
+Design Document - REST API
 
-## Index
-- Overview
-- Request Mapping
-- Response Mappings
-- API Request Message
-- API Response Message
-- Non Functional Design
-- Testing Considerations
-- Security Aspects
-- References
+Index:
 
-## Overview
-The XML WSDL definition provided describes a SOAP-based web service called \"WebService1\" with an operation called \"GetAccountDetails\". This design document will outline the necessary steps to create a REST API based on this WSDL definition.
+1. Overview
+2. Request Mapping
+3. Response Mappings
+4. API Request Message
+5. API Response Message
+6. Non-Functional Design
+7. Testing Considerations
+8. Security Aspects
+9. References
 
-## Request Mapping
-The REST API will have a single endpoint:
-- Endpoint: /api/account/{accountNumber}
-- Method: GET
+Header:
+[Your Company Name]
+[Project Name]
+[Date]
 
-## Response Mappings
-The REST API will return a JSON response with the following structure:
-```json
+Footer:
+[Page Number]
+
+Section 1: Overview
+
+The XML WSDL definition provided describes a SOAP-based web service called \"WebService1\" that provides an operation called \"GetAccountDetails\". This operation allows clients to retrieve account details by providing an account number as input.
+
+Section 2: Request Mapping
+
+The request mapping for the \"GetAccountDetails\" operation is as follows:
+
+Endpoint: [Base URL]/GetAccountDetails
+HTTP Method: POST
+Request Body:
 {
-  \"accountNumber\": \"string\",
-  \"accountType\": \"string\",
-  \"accountBalance\": \"string\",
-  \"phone\": \"string\",
-  \"address\": {
-    \"firstLine\": \"string\",
-    \"secondLine\": \"string\",
-    \"country\": \"string\",
-    \"postalCode\": \"string\"
+  \"AccountNumber\": \"string\"
+}
+
+Section 3: Response Mappings
+
+The response mappings for the \"GetAccountDetails\" operation are as follows:
+
+Response Body:
+{
+  \"GetAccountDetailsResult\": {
+    \"AccountNumber\": \"string\",
+    \"AccountType\": \"string\",
+    \"AccountBalance\": \"string\",
+    \"Phone\": \"string\",
+    \"Address\": {
+      \"FirstLine\": \"string\",
+      \"SecondLine\": \"string\",
+      \"Country\": \"string\",
+      \"PostalCode\": \"string\"
+    }
   }
 }
-```
 
-## API Request Message
-The REST API will accept a GET request with the following parameters:
-- Path parameter:
-  - accountNumber: string (required) - The account number for which to retrieve details.
+Section 4: API Request Message
 
-## API Response Message
-The REST API will return a JSON response with the following parameters:
-- accountNumber: string - The account number.
-- accountType: string - The type of the account.
-- accountBalance: string - The current balance of the account.
-- phone: string - The phone number associated with the account.
-- address:
-  - firstLine: string - The first line of the account holder's address.
-  - secondLine: string - The second line of the account holder's address.
-  - country: string - The country of the account holder's address.
-  - postalCode: string - The postal code of the account holder's address.
+The API request message for the \"GetAccountDetails\" operation is as follows:
 
-## Non Functional Design
-- The REST API should follow RESTful design principles.
-- The API should be scalable and able to handle a large number of concurrent requests.
-- The API should be optimized for performance and response times.
+Request:
+{
+  \"AccountNumber\": \"string\"
+}
 
-## Testing Considerations
-- Unit tests should be created to test the functionality of the API.
-- Integration tests should be performed to ensure the API works correctly with the underlying system.
+Section 5: API Response Message
 
-## Security Aspects
-- The API should implement authentication and authorization mechanisms to ensure only authorized users can access the API.
-- The API should use secure communication protocols (e.g., HTTPS) to protect data during transit.
+The API response message for the \"GetAccountDetails\" operation is as follows:
 
-## References
-- [XML WSDL Definition](<https://example.com/wsdl-definition>)
-- [RESTful API Design Principles](<https://restfulapi.net/>)
-- [REST API Security Best Practices](<https://www.owasp.org/index.php/REST_Security_Cheat_Sheet>)"
+Response:
+{
+  \"AccountNumber\": \"string\",
+  \"AccountType\": \"string\",
+  \"AccountBalance\": \"string\",
+  \"Phone\": \"string\",
+  \"Address\": {
+    \"FirstLine\": \"string\",
+    \"SecondLine\": \"string\",
+    \"Country\": \"string\",
+    \"PostalCode\": \"string\"
+  }
+}
+
+Section 6: Non-Functional Design
+
+The non-functional design considerations for the REST API implementation include:
+
+- Performance: Optimize the API for high performance by implementing caching mechanisms and optimizing database queries.
+- Scalability: Design the API to handle a large number of concurrent requests by implementing load balancing and horizontal scaling techniques.
+- Reliability: Implement error handling and logging mechanisms to ensure the API is reliable and can recover from failures.
+- Security: Implement authentication and authorization mechanisms to secure the API from unauthorized access.
+- Documentation: Provide comprehensive documentation for the API, including usage guidelines and examples.
+
+Section 7: Testing Considerations
+
+The testing considerations for the REST API implementation include:
+
+- Unit Testing: Develop and execute unit tests to validate the functionality of individual API endpoints.
+- Integration Testing: Perform integration testing to ensure the API functions as expected when integrated with other systems.
+- Performance Testing: Conduct performance testing to measure the API's response time and throughput under different loads.
+- Security Testing: Perform security testing to identify any vulnerabilities or weaknesses in the API's security mechanisms.
+- Error Handling Testing: Test the API's error handling capabilities by simulating different error scenarios.
+
+Section 8: Security Aspects
+
+The security aspects of the REST API implementation include:
+
+- Authentication: Implement a secure authentication mechanism, such as OAuth or JWT, to verify the identity of clients.
+- Authorization: Define and enforce access control rules to ensure that only authorized clients can access specific API endpoints.
+- Encryption: Use encryption techniques, such as SSL/TLS, to secure the communication between clients and the API.
+- Input Validation: Validate and sanitize all input data to prevent common security vulnerabilities, such as SQL injection or cross-site scripting (XSS) attacks.
+- Audit Logging: Implement logging mechanisms to record API usage and detect any suspicious or malicious activities.
+
+Section 9: References
+
+- [List any references or resources used during the design process]
+
+Footer:
+[Page Number]
+
+Note: This design document provides an overview of the REST API based on the provided XML WSDL definition. Further details and implementation specifics may need to be considered during the actual implementation process."
